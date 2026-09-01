@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мессенджер Миша</title>
+    
+    <!-- PWA МАНИФЕСТ (встроенный) -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogItCc0LXRgdGB0LXQvdC00LbQtdGAINCc0LjRiNCwIiwKICAic2hvcnRfbmFtZSI6ICLQnNC40YjQsCIsCiAgImRlc2NyaXB0aW9uIjogItCc0LXRgdGB0LXQvdC00LbQtdGAINC00LvRjyDQvtGjQtdC90LjRjyIsCiAgInN0YXJ0X3VybCI6ICIvIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMGEwYTFhIiwKICAidGhlbWVfY29sb3IiOiAiIzBhMGExYSIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbCw8c3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDE5MiAxOTInPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0nZycgZ3JhZGllbnRVbml0cz0nb2JqZWN0Qm91bmRpbmdCb3gnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAlJyBzdHlsZT0nc3RvcC1jb2xvcjojMWEyYzNhJy8+PHN0b3Agb2Zmc2V0PScxMDAlJyBzdHlsZT0nc3RvcC1jb2xvcjojMGUxYzI4Jy8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9JzE5MicgaGVpZ2h0PScxOTInIHJ4PScyMCcgZmlsbD0ndXJsKCNnKScvPjx0ZXh0IHg9Jzk2JyB5PScxMTInIGZvbnQtZmFtaWx5PSdBcmlhbCxzYW5zLXNlcmlmJyBmb250LXNpemU9JzYwJyBmb250LXdlaWdodD0nNzAwJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBmaWxsPSd3aGl0ZScgc3Ryb2tlPScjZmZjYzAwJyBzdHJva2Utd2lkdGg9JzInPk1NPC90ZXh0Pjwvc3ZnPiIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsCiAgICAgICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSIKICAgIH0sCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sLDxzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgNTEyIDUxMic+PHJlY3Qgd2lkdGg9JzUxMicgaGVpZ2h0PSc1MTInIHJ4PSc1MCcgZmlsbD0nIzFhMmMzYScvPjx0ZXh0IHg9JzI1NicgeT0nMzIwJyBmb250LWZhbWlseT0nQXJpYWwsc2Fucy1zZXJpZicgZm9udC1zaXplPScxNjAnIGZvbnQtd2VpZ2h0PSc3MDAnIHRleHQtYW5jaG9yPSdtaWRkbGUnIGZpbGw9J3doaXRlJyBzdHJva2U9JyNmZmNjMDAnIHN0cm9rZS13aWR0aD0nNCc+0JzQvDwvdGV4dD48L3N2Zz4iLAogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLAogICAgICAicHVycG9zZSI6ICJhbnkgbWFza2FibGUiCiAgICB9CiAgXQp9">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Cdefs%3E%3ClinearGradient id='g' gradientUnits='objectBoundingBox' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231a2c3a'/%3E%3Cstop offset='100%25' stop-color='%230e1c28'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='192' height='192' rx='20' fill='url(%23g)'/%3E%3Ctext x='96' y='112' font-family='Arial,sans-serif' font-size='60' font-weight='700' text-anchor='middle' fill='white' stroke='%23ffcc00' stroke-width='2'%3E%D0%9C%D0%9C%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Cdefs%3E%3ClinearGradient id='g' gradientUnits='objectBoundingBox' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231a2c3a'/%3E%3Cstop offset='100%25' stop-color='%230e1c28'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='192' height='192' rx='20' fill='url(%23g)'/%3E%3Ctext x='96' y='112' font-family='Arial,sans-serif' font-size='60' font-weight='700' text-anchor='middle' fill='white' stroke='%23ffcc00' stroke-width='2'%3E%D0%9C%D0%9C%3C/text%3E%3C/svg%3E">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Миша">
+    <meta name="theme-color" content="#0a0a1a">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background:#0a0a1a; font-family:'Segoe UI',sans-serif; color:white; min-height:100vh; display:flex; justify-content:center; align-items:center; overflow:hidden; }
+
+        .auth-screen { position:fixed; top:0; left:0; width:100%; height:100%; background:linear-gradient(135deg,#1a1a2e,#16213e,#0f0f1a); display:flex; justify-content:center; align-items:center; z-index:10000; flex-direction:column; gap:20px; padding:20px; }
+        .auth-screen.hidden { display:none; }
+        .auth-box { background:#1a1a2e; border:1px solid #2a2a4a; border-radius:24px; padding:40px; width:100%; max-width:420px; text-align:center; }
+        .auth-box h1 { color:#ffcc00; font-size:2rem; margin-bottom:10px; }
+        .auth-box .sub { color:#888; font-size:0.95rem; margin-bottom:20px; }
+        .auth-box input { width:100%; padding:16px 20px; margin:8px 0; border-radius:12px; border:1px solid #2a2a4a; background:#0f0f1a; color:white; font-size:1rem; }
+        .auth-box input:focus { outline:none; border-color:#4caf50; }
+        .auth-box .btn { width:100%; padding:16px; margin-top:10px; border:none; border-radius:12px; font-size:1.1rem; font-weight:bold; cursor:pointer; transition:0.3s; }
+        .auth-box .btn-primary { background:linear-gradient(135deg,#4caf50,#2e7d32); color:white; }
+        .auth-box .btn-primary:hover { transform:scale(1.02); box-shadow:0 0 30px rgba(76,175,80,0.3); }
+        .auth-box .error { color:#f44336; font-size:0.85rem; margin-top:10px; min-height:20px; }
+        .auth-box .success { color:#4caf50; font-size:0.85rem; margin-top:10px; min-height:20px; }
+        .auth-box .switch-link { color:#4caf50; cursor:pointer; font-weight:bold; margin-top:15px; display:inline-block; font-size:0.95rem; }
+        .auth-box .switch-link:hover { text-decoration:underline; }
+
+        .main-app { display:none; flex-direction:column; width:100%; height:100vh; overflow:hidden; }
+        .main-app.active { display:flex; }
+        .main-app.blocked { pointer-events:none; opacity:0.5; transition:opacity 0.3s; }
+
+        .header { display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.8); padding:8px 12px; gap:8px; flex-wrap:wrap; flex-shrink:0; }
+        .header button { padding:6px 14px; border-radius:25px; cursor:pointer; font-weight:bold; font-size:0.75rem; border:2px solid #4caf50; background:rgba(255,255,255,0.1); color:white; transition:0.3s; }
+        .header button:hover { background:#4caf50; }
+        .header button.active { background:#4caf50; }
+        .header button.pixel-btn { border-color:#ff6b6b; display:inline-block; }
+        .header button.pixel-btn:hover { background:#ff6b6b; }
+        .header button.pixel-btn.active { background:#ff6b6b; }
+        .header button.chat-btn { border-color:#4caf50; display:none; }
+        .header button.chat-btn:hover { background:#4caf50; }
+        .header button.chat-btn.active { background:#4caf50; }
+        .header button.dm-btn { border-color:#4caf50; color:#4caf50; display:inline-block; }
+        .header button.dm-btn:hover { background:#4caf50; color:white; }
+        .header button.dm-btn.active { background:#4caf50; color:white; }
+        .header button.leaders-btn { border-color:#ffcc00; color:#ffcc00; display:none; }
+        .header button.leaders-btn:hover { background:#ffcc00; color:#0a0a1a; }
+        .header button.leaders-btn.active { background:#ffcc00; color:#0a0a1a; }
+        .header button.game-btn { border-color:#ff6b6b; color:#ff6b6b; display:none; }
+        .header button.game-btn:hover { background:#ff6b6b; color:white; }
+        .header button.game-btn.active { background:#ff6b6b; color:white; }
+        .header button.shop-btn { border-color:#ffcc00; color:#ffcc00; display:none; }
+        .header button.shop-btn:hover { background:#ffcc00; color:#0a0a1a; }
+        .header button.shop-btn.active { background:#ffcc00; color:#0a0a1a; }
+        .header button.profile-btn { border-color:#0099ff; color:#0099ff; display:inline-block; }
+        .header button.profile-btn:hover { background:#0099ff; color:white; }
+        .header button.profile-btn.active { background:#0099ff; color:white; }
+        .header button.search-btn { border-color:#0099ff; color:#0099ff; display:none; }
+        .header button.search-btn:hover { background:#0099ff; color:white; }
+        .header button.search-btn.active { background:#0099ff; color:white; }
+        .header button.friends-btn { border-color:#ff6b6b; color:#ff6b6b; display:none; }
+        .header button.friends-btn:hover { background:#ff6b6b; color:white; }
+        .header button.friends-btn.active { background:#ff6b6b; color:white; }
+        .header button.admin-btn { border-color:#ff6b6b; color:#ff6b6b; display:none; }
+        .header button.admin-btn:hover { background:#ff6b6b; color:white; }
+        .header button.admin-btn.active { background:#ff6b6b; color:white; }
+        .header button.admin-btn.show { display:inline-block; }
+
+        .user-info { color:#ffcc00; font-size:0.8rem; font-weight:bold; background:rgba(0,0,0,0.3); padding:4px 12px; border-radius:20px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+        .user-info .logout-btn { background:#f44336; color:white; border:none; padding:3px 12px; border-radius:20px; cursor:pointer; font-size:0.65rem; }
+        .user-info .logout-btn:hover { background:#d32f2f; }
+        .user-info .admin-badge { background:#ff6b6b; color:white; padding:2px 10px; border-radius:12px; font-size:0.55rem; font-weight:bold; display:none; }
+        .user-info .admin-badge.show { display:inline-block; }
+        .user-info .banned-badge { background:#f44336; color:white; padding:2px 10px; border-radius:12px; font-size:0.55rem; font-weight:bold; display:none; animation:pulseBan 1s infinite; }
+        .user-info .banned-badge.show { display:inline-block; }
+
+        @keyframes pulseBan { 0%{ transform:scale(1); } 50%{ transform:scale(1.05); } 100%{ transform:scale(1); } }
+
+        .balance { position:fixed; top:10px; right:10px; background:rgba(0,0,0,0.8); padding:6px 14px; border-radius:40px; font-size:0.85rem; font-weight:bold; color:#4caf50; font-family:monospace; z-index:1000; border:1px solid #4caf50; }
+        .balance span { color:white; }
+
+        .pixel-mode, .chat-container, .dm-layout, .leaders-container, .game-container, .shop-container, .profile-container, .search-container, .friends-container, .admin-panel {
+            display: none !important;
+            flex: 1;
+            flex-direction: column;
+            min-height: 0;
+        }
+        .pixel-mode.active, .chat-container.active, .dm-layout.active, .leaders-container.active, .game-container.active, .shop-container.active, .profile-container.active, .search-container.active, .friends-container.active, .admin-panel.active {
+            display: flex !important;
+        }
+
+        .pixel-canvas-wrap { flex:1; background:#0f0f1a; border:3px solid #ff6b6b; margin:4px 10px 10px 10px; border-radius:15px; overflow:auto; cursor:crosshair; position:relative; min-height:200px; }
+        #pixel-canvas { background:white; display:block; margin:0 auto; image-rendering:pixelated; width:100%; height:100%; }
+        .pixel-color-palette { display:flex; gap:8px; flex-wrap:wrap; background:rgba(0,0,0,0.7); padding:8px; border-radius:40px; justify-content:center; }
+        .pixel-color-btn { width:32px; height:32px; border-radius:8px; cursor:pointer; border:2px solid white; }
+        .pixel-color-btn.active { border:3px solid #00ff88; transform:scale(1.1); }
+        .pixel-tooltip { position:fixed; pointer-events:none; background:rgba(0,0,0,0.9); backdrop-filter:blur(10px); color:white; padding:10px 18px; border-radius:12px; font-size:0.85rem; font-weight:bold; z-index:9999; opacity:0; transform:translateY(-10px) scale(0.95); transition:all 0.2s cubic-bezier(0.34,1.56,0.64,1); border:2px solid rgba(255,204,0,0.3); box-shadow:0 4px 30px rgba(0,0,0,0.7); display:none; }
+        .pixel-tooltip.show { opacity:1; transform:translateY(0) scale(1); display:block; }
+        .pixel-tooltip .tooltip-name { color:#ffcc00; font-size:1rem; }
+        .pixel-tooltip .tooltip-time { color:#888; font-weight:normal; font-size:0.65rem; margin-left:8px; }
+        .pixel-tooltip .tooltip-color { display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:6px; border:1px solid rgba(255,255,255,0.2); vertical-align:middle; }
+
+        .chat-container .chat-messages { flex:1; overflow-y:auto; padding:12px; display:flex; flex-direction:column; gap:6px; background:#0f0f1a; }
+        .chat-message { padding:8px 14px; border-radius:14px; max-width:80%; word-wrap:break-word; font-size:0.9rem; line-height:1.4; }
+        .chat-message .sender { font-weight:bold; font-size:0.8rem; margin-bottom:2px; }
+        .chat-message .time { font-size:0.55rem; color:#888; float:right; margin-left:10px; }
+        .chat-message .text { color:white; }
+        .chat-message.self { align-self:flex-end; background:#1a2a1a; border:1px solid #4caf50; }
+        .chat-message.other { align-self:flex-start; background:#2a2a4a; border:1px solid #2a2a4a; }
+        .chat-message.system { align-self:center; background:transparent; color:#888; font-style:italic; font-size:0.75rem; max-width:100%; border:none; }
+        .chat-empty { color:#555; text-align:center; padding:30px; font-size:0.85rem; }
+        .chat-input-area { display:flex; padding:8px 12px; background:#1a1a2e; border-top:1px solid #2a2a4a; gap:8px; flex-shrink:0; }
+        .chat-input-area input { flex:1; padding:8px 14px; border-radius:25px; border:1px solid #2a2a4a; background:#0f0f1a; color:white; font-size:0.9rem; outline:none; }
+        .chat-input-area input:focus { border-color:#4caf50; }
+        .chat-input-area button { padding:8px 20px; border-radius:25px; border:none; background:linear-gradient(135deg,#4caf50,#2e7d32); color:white; font-weight:bold; cursor:pointer; font-size:0.8rem; }
+
+        .dm-layout { flex-direction:row !important; }
+        .dm-layout .dm-chat-list { width:220px; min-width:160px; background:#0f0f1a; border-right:1px solid #2a2a4a; overflow-y:auto; flex-shrink:0; }
+        .dm-layout .dm-chat-item { display:flex; align-items:center; gap:10px; padding:12px 14px; cursor:pointer; border-bottom:1px solid #1a1a2e; transition:0.2s; }
+        .dm-layout .dm-chat-item:hover { background:#1a1a2e; }
+        .dm-layout .dm-chat-item.active { background:#2a2a4a; border-left:3px solid #4caf50; }
+        .dm-layout .dm-chat-item .avatar-small { width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #2a2a4a; flex-shrink:0; background:#1a1a2e; display:flex; align-items:center; justify-content:center; font-size:1.2rem; }
+        .dm-layout .dm-chat-item .chat-info { flex:1; min-width:0; }
+        .dm-layout .dm-chat-item .chat-name { font-weight:bold; font-size:0.85rem; color:#ffcc00; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+        .dm-layout .dm-chat-empty { color:#555; text-align:center; padding:20px; font-size:0.85rem; }
+        .dm-layout .dm-chat-area { flex:1; display:flex; flex-direction:column; min-width:0; background:#0f0f1a; }
+        .dm-layout .dm-chat-header { display:flex; align-items:center; gap:10px; padding:10px 14px; background:#1a1a2e; border-bottom:1px solid #2a2a4a; cursor:pointer; transition:0.2s; }
+        .dm-layout .dm-chat-header:hover { background:#2a2a4a; }
+        .dm-layout .dm-chat-header .avatar-small { width:32px; height:32px; border-radius:50%; object-fit:cover; border:2px solid #2a2a4a; flex-shrink:0; background:#1a1a2e; display:flex; align-items:center; justify-content:center; font-size:1rem; }
+        .dm-layout .dm-chat-header .chat-name { font-weight:bold; font-size:0.95rem; color:#ffcc00; }
+        .dm-layout .dm-chat-header .chat-status { font-size:0.65rem; color:#4caf50; }
+        .dm-layout .dm-chat-header .chat-status.offline { color:#666; }
+        .dm-layout .dm-chat-header .call-btn-small { background:linear-gradient(135deg,#4caf50,#2e7d32); color:white; border:none; padding:4px 12px; border-radius:12px; cursor:pointer; font-size:0.7rem; font-weight:bold; margin-left:auto; }
+        .dm-layout .dm-chat-header .call-btn-small:hover { transform:scale(1.05); }
+        .dm-layout .dm-messages { flex:1; overflow-y:auto; padding:12px; display:flex; flex-direction:column; gap:6px; background:#0f0f1a; }
+        .dm-layout .dm-message { padding:8px 14px; border-radius:14px; max-width:80%; word-wrap:break-word; font-size:0.9rem; line-height:1.4; }
+        .dm-layout .dm-message .sender { font-weight:bold; font-size:0.8rem; margin-bottom:2px; }
+        .dm-layout .dm-message .time { font-size:0.55rem; color:#888; float:right; margin-left:10px; }
+        .dm-layout .dm-message .text { color:white; }
+        .dm-layout .dm-message.self { align-self:flex-end; background:#1a2a1a; border:1px solid #4caf50; }
+        .dm-layout .dm-message.other { align-self:flex-start; background:#2a2a4a; border:1px solid #2a2a4a; }
+        .dm-layout .dm-empty { color:#555; text-align:center; padding:30px; font-size:0.85rem; }
+        .dm-layout .dm-input-area { display:flex; padding:8px 12px; background:#1a1a2e; border-top:1px solid #2a2a4a; gap:8px; flex-shrink:0; }
+        .dm-layout .dm-input-area input { flex:1; padding:8px 14px; border-radius:25px; border:1px solid #2a2a4a; background:#0f0f1a; color:white; font-size:0.9rem; outline:none; }
+        .dm-layout .dm-input-area input:focus { border-color:#4caf50; }
+        .dm-layout .dm-input-area button { padding:8px 20px; border-radius:25px; border:none; background:linear-gradient(135deg,#4caf50,#2e7d32); color:white; font-weight:bold; cursor:pointer; font-size:0.8rem; }
+
+        .profile-container { padding:20px; align-items:center; overflow-y:auto; }
+        .profile-title { font-size:1.8rem; font-weight:bold; color:#0099ff; margin-bottom:16px; }
+        .profile-card { background:#1a1a2e; border:2px solid #2a2a4a; border-radius:16px; padding:20px; width:100%; max-width:500px; text-align:center; }
+        .profile-avatar-wrap { position:relative; display:inline-block; margin-bottom:8px; }
+        .profile-avatar-wrap .avatar-img { width:80px; height:80px; border-radius:50%; object-fit:cover; border:3px solid #2a2a4a; cursor:pointer; transition:0.3s; }
+        .profile-avatar-wrap .avatar-img:hover { border-color:#0099ff; transform:scale(1.05); }
+        .profile-name { font-size:1.6rem; font-weight:bold; color:#ffcc00; }
+        .profile-fullname { color:#888; font-size:0.9rem; margin-bottom:6px; }
+        .profile-stat { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #2a2a4a; font-size:0.9rem; }
+        .profile-stat:last-child { border-bottom:none; }
+        .profile-stat .label { color:#888; }
+        .profile-stat .value { color:#ffcc00; font-weight:bold; }
+        .profile-stat .value.balance { color:#4caf50; }
+        .profile-photos { margin-top:12px; width:100%; }
+        .profile-photos-title { color:#888; font-size:0.8rem; margin-bottom:8px; text-align:center; }
+        .profile-photos-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(80px,1fr)); gap:6px; }
+        .profile-photos-grid .photo-item { position:relative; border-radius:8px; overflow:hidden; aspect-ratio:1; background:#2a2a4a; cursor:pointer; border:2px solid transparent; transition:0.3s; }
+        .profile-photos-grid .photo-item:hover { border-color:#0099ff; transform:scale(1.02); }
+        .profile-photos-grid .photo-item img { width:100%; height:100%; object-fit:cover; }
+        .profile-photos-grid .photo-item .delete-photo { position:absolute; top:2px; right:2px; background:rgba(244,67,54,0.8); color:white; border:none; border-radius:50%; width:18px; height:18px; font-size:10px; cursor:pointer; display:none; }
+        .profile-photos-grid .photo-item:hover .delete-photo { display:block; }
+        .profile-photos-grid .photo-upload-btn { display:flex; align-items:center; justify-content:center; background:#1a1a2e; border:2px dashed #2a2a4a; border-radius:8px; aspect-ratio:1; cursor:pointer; font-size:2rem; color:#555; transition:0.3s; }
+        .profile-photos-grid .photo-upload-btn:hover { border-color:#0099ff; color:#0099ff; }
+        .profile-inventory { margin-top:8px; width:100%; }
+        .profile-inventory-title { color:#888; font-size:0.75rem; margin-bottom:4px; text-align:center; }
+        .profile-inventory-items { display:flex; flex-wrap:wrap; gap:4px; justify-content:center; }
+        .profile-inventory-item { background:#2a2a4a; padding:3px 10px; border-radius:10px; font-size:0.75rem; border:1px solid #4a4a6a; }
+        .profile-promo { margin-top:12px; width:100%; display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+        .profile-promo input { flex:1; padding:8px 12px; border-radius:8px; border:1px solid #2a2a4a; background:#0f0f1a; color:white; font-size:0.85rem; min-width:120px; }
+        .profile-promo input:focus { outline:none; border-color:#ffcc00; }
+        .profile-promo button { padding:8px 18px; border-radius:8px; border:none; background:linear-gradient(135deg,#ffcc00,#ff6b6b); color:#000; font-weight:bold; cursor:pointer; font-size:0.85rem; transition:0.3s; }
+        .profile-promo button:hover { transform:scale(1.05); }
+
+        .avatar-upload, .photo-upload-input { display:none; }
+
+        /* КНОПКА УСТАНОВКИ - НОРМАЛЬНАЯ */
+        .install-btn {
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            transition: 0.3s;
+            width: 100%;
+            max-width: 280px;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.2);
+        }
+        .install-btn:hover { transform: scale(1.05); }
+        .install-btn.hidden { display: none; }
+
+        .install-status {
+            color: #888;
+            font-size: 0.7rem;
+            margin-top: 4px;
+            padding: 4px 12px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .leaders-container { padding:15px; }
+        .leaders-title { text-align:center; font-size:1.5rem; font-weight:bold; color:#ffcc00; margin-bottom:12px; }
+        .leaders-table { width:100%; border-collapse:collapse; background:#1a1a2e; border-radius:12px; overflow:hidden; font-size:0.9rem; }
+        .leaders-table th { background:#2a2a4a; color:#ffcc00; padding:8px 12px; text-align:left; font-weight:bold; }
+        .leaders-table td { padding:6px 12px; border-bottom:1px solid #2a2a4a; color:#ddd; }
+        .leaders-table .rank.gold { color:#ffd700; }
+        .leaders-table .rank.silver { color:#c0c0c0; }
+        .leaders-table .rank.bronze { color:#cd7f32; }
+        .leaders-table .user-name { font-weight:bold; color:#ffcc00; }
+        .leaders-table .user-balance { font-family:monospace; color:#4caf50; font-weight:bold; text-align:right; }
+
+        .game-container { padding:20px; align-items:center; }
+        .game-title { font-size:1.8rem; font-weight:bold; color:#ffcc00; margin-bottom:15px; }
+        .game-balance { font-size:1.2rem; color:#4caf50; margin-bottom:15px; padding:10px 20px; background:#1a1a2e; border-radius:12px; border:1px solid #4caf50; }
+        .game-balance span { font-weight:bold; font-size:1.4rem; }
+        .game-bet { display:flex; align-items:center; gap:10px; margin-bottom:15px; flex-wrap:wrap; justify-content:center; }
+        .game-bet label { color:#888; font-size:0.95rem; }
+        .game-bet input { width:120px; padding:8px 14px; border-radius:10px; border:1px solid #2a2a4a; background:#0f0f1a; color:white; font-size:1rem; text-align:center; }
+        .game-bet button { padding:6px 14px; border-radius:18px; border:none; cursor:pointer; font-weight:bold; font-size:0.8rem; }
+        .bet-half-btn { background:#ff9800; color:white; }
+        .bet-double-btn { background:#4caf50; color:white; }
+        .bet-all-btn { background:#f44336; color:white; }
+        .game-buttons { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:20px; }
+        .game-choice { padding:14px 28px; font-size:1.5rem; border-radius:25px; border:3px solid #2a2a4a; background:#1a1a2e; color:white; cursor:pointer; transition:0.3s; font-weight:bold; min-width:100px; }
+        .game-choice:hover { transform:scale(1.05); border-color:#ff6b6b; }
+        .game-choice:disabled { opacity:0.5; cursor:not-allowed; }
+        .game-choice.rock { border-color:#ff6b6b; }
+        .game-choice.scissors { border-color:#4caf50; }
+        .game-choice.paper { border-color:#ffcc00; }
+        .game-result { font-size:1.3rem; font-weight:bold; padding:15px 25px; border-radius:12px; margin-bottom:20px; min-height:60px; text-align:center; background:#1a1a2e; border:1px solid #2a2a4a; width:100%; max-width:450px; }
+        .game-result.win { color:#4caf50; border-color:#4caf50; background:rgba(76,175,80,0.1); }
+        .game-result.lose { color:#f44336; border-color:#f44336; background:rgba(244,67,54,0.1); }
+        .game-result.draw { color:#ffcc00; border-color:#ffcc00; background:rgba(255,204,0,0.1); }
+        .game-history { width:100%; max-width:450px; max-height:120px; overflow-y:auto; background:#1a1a2e; border-radius:12px; border:1px solid #2a2a4a; padding:5px; }
+        .game-history .history-item { padding:6px 12px; border-bottom:1px solid #2a2a4a; font-size:0.85rem; display:flex; justify-content:space-between; align-items:center; }
+        .game-history .history-item.win { color:#4caf50; }
+        .game-history .history-item.lose { color:#f44336; }
+        .game-history .history-item.draw { color:#ffcc00; }
+
+        .shop-container { padding:20px; }
+        .shop-title { text-align:center; font-size:1.6rem; font-weight:bold; color:#ffcc00; margin-bottom:16px; }
+        .shop-items { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; overflow-y:auto; padding:5px; }
+        .shop-item { background:#1a1a2e; border:2px solid #2a2a4a; border-radius:14px; padding:14px; text-align:center; transition:0.3s; cursor:default; }
+        .shop-item:hover { transform:scale(1.03); border-color:#ffcc00; }
+        .shop-item .icon { font-size:3rem; margin-bottom:6px; }
+        .shop-item .name { font-weight:bold; color:white; font-size:0.9rem; }
+        .shop-item .price { color:#4caf50; font-weight:bold; font-size:0.8rem; margin:4px 0; }
+        .shop-item .buy-btn { background:linear-gradient(135deg,#4caf50,#2e7d32); color:white; border:none; padding:6px 16px; border-radius:16px; cursor:pointer; font-weight:bold; font-size:0.7rem; transition:0.2s; margin-top:4px; }
+        .shop-item .buy-btn:hover { transform:scale(1.05); }
+        .shop-item .buy-btn:disabled { opacity:0.5; cursor:not-allowed; background:#2a2a4a; }
+
+        .search-container { padding:20px; }
+        .search-title { text-align:center; font-size:1.6rem; font-weight:bold; color:#0099ff; margin-bottom:16px; }
+        .search-input-area { display:flex; gap:10px; margin-bottom:15px; }
+        .search-input-area input { flex:1; padding:10px 16px; border-radius:10px; border:1px solid #2a2a4a; background:#0f0f1a; color:white; font-size:0.95rem; outline:none; }
+        .search-input-area input:focus { border-color:#0099ff; }
+        .search-input-area button { padding:10px 20px; border-radius:10px; border:none; background:linear-gradient(135deg,#0099ff,#0066cc); color:white; font-weight:bold; cursor:pointer; font-size:0.9rem; }
+        .search-results { flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:6px; padding:5px; }
+        .search-result-item { background:#1a1a2e; border:1px solid #2a2a4a; border-radius:10px; padding:10px 14px; display:flex; justify-content:space-between; align-items:center; }
+        .search-result-item:hover { border-color:#0099ff; }
+        .search-result-item .info { display:flex; align-items:center; gap:10px; cursor:pointer; }
+        .search-result-item .info .avatar-small { width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #2a2a4a; }
+        .search-result-item .info .name { font-weight:bold; color:#ffcc00; font-size:0.95rem; }
+        .search-result-item .actions button { padding:5px 12px; border-radius:16px; border:none; cursor:pointer; font-weight:bold; font-size:0.7rem; }
+        .friend-add-btn { background:linear-gradient(135deg,#4caf50,#2e7d32); color:white; }
+        .friend-remove-btn { background:#f44336; color:white; }
+        .dm-send-btn { background:linear-gradient(135deg,#0099ff,#0066cc); color:white; }
+
+        .friends-container { padding:20px; }
+        .friends-title { text-align:center; font-size:1.6rem; font-weight:bold; color:#ff6b6b; margin-bottom:16px; }
+        .friends-list { flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:6px; padding:5px; }
+        .friend-item { background:#1a1a2e; border:1px solid #2a2a4a; border-radius:10px; padding:10px 14px; display:flex; justify-content:space-between; align-items:center; }
+        .friend-item:hover { border-color:#ff6b6b; }
+        .friend-item .info { display:flex; align-items:center; gap:10px; cursor:pointer; }
+        .friend-item .info .avatar-small { width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #2a2a4a; }
+        .friend-item .info .name { font-weight:bold; color:#ffcc00; font-size:0.95rem; }
+        .friend-item .info .status { font-size:0.7rem; color:#4caf50; }
+        .friend-item .info .status.offline { color:#666; }
+        .friend-item .actions button { padding:5px 12px; border-radius:16px; border:none; cursor:pointer; font-weight:bold; font-size:0.7rem; }
+        .friend-accept-btn { background:linear-gradient(135deg,#4caf50,#2e7d32); color:white; }
+        .friend-reject-btn { background:#f44336; color:white; }
+        .friend-remove-btn { background:#f44336; color:white; }
+        .friend-dm-btn { background:linear-gradient(135deg,#0099ff,#0066cc); color:white; }
+        .friend-call-btn { background:linear-gradient(135deg,#4caf50,#2e7d32); color:white; border:none; padding:4px 12px; border-radius:12px; cursor:pointer; font-size:0.7rem; font-weight:bold; }
+
+        .admin-panel { padding:15px; overflow-y:auto; }
+        .admin-title { color:#ff6b6b; font-size:1.6rem; margin-bottom:14px; text-align:center; }
+        .admin-global-msg { background:#1a1a2e; border:2px solid #ffcc00; border-radius:10px; padding:10px 14px; margin-bottom:10px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+        .admin-global-msg input { flex:1; padding:8px 12px; border-radius:8px; border:1px solid #2a2a4a; background:#0f0f1a; color:white; font-size:0.9rem; min-width:120px; }
+        .admin-global-msg input:focus { outline:none; border-color:#ffcc00; }
+        .admin-global-msg button { padding:8px 18px; border-radius:20px; border:none; background:linear-gradient(135deg,#ffcc00,#ff6b6b); color:#000; font-weight:bold; cursor:pointer; font-size:0.8rem; }
+        .admin-stats { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+        .stat-card { background:#1a1a2e; border:1px solid #2a2a4a; border-radius:8px; padding:10px 14px; flex:1; min-width:70px; text-align:center; }
+        .stat-card .number { font-size:1.4rem; font-weight:bold; color:#ffcc00; }
+        .stat-card .label { color:#888; font-size:0.65rem; margin-top:4px; }
+        .stat-card.online .number { color:#4caf50; }
+        .stat-card.banned .number { color:#f44336; }
+        .admin-users { background:#1a1a2e; border:1px solid #2a2a4a; border-radius:10px; overflow:hidden; }
+        .admin-users-header { display:grid; grid-template-columns:1fr 0.7fr 0.6fr 0.5fr 0.5fr 1.8fr; padding:8px 10px; background:#2a2a4a; font-weight:bold; font-size:0.7rem; color:#888; gap:4px; }
+        .admin-user-row { display:grid; grid-template-columns:1fr 0.7fr 0.6fr 0.5fr 0.5fr 1.8fr; padding:6px 10px; border-bottom:1px solid #2a2a4a; align-items:center; gap:4px; font-size:0.75rem; transition:0.2s; }
+        .admin-user-row:hover { background:#2a2a4a; }
+        .admin-user-row .user-name { font-weight:bold; color:#ffcc00; font-size:0.85rem; }
+        .admin-user-row .user-password { color:#ffcc00; font-family:monospace; font-size:0.7rem; cursor:pointer; background:#0f0f1a; padding:2px 6px; border-radius:4px; border:1px solid #2a2a4a; }
+        .admin-user-row .user-password:hover { border-color:#ffcc00; }
+        .admin-user-row .user-balance { color:#4caf50; font-weight:bold; font-size:0.85rem; }
+        .admin-user-row .user-online { color:#4caf50; font-size:0.65rem; }
+        .admin-user-row .user-online.offline { color:#666; }
+        .admin-user-row .user-banned { color:#f44336; font-weight:bold; font-size:0.65rem; }
+        .admin-actions { display:flex; gap:3px; flex-wrap:wrap; align-items:center; }
+        .admin-actions button { color:white; border:none; padding:3px 8px; border-radius:6px; cursor:pointer; font-size:0.6rem; font-weight:bold; transition:0.2s; }
+        .admin-actions button:hover { transform:scale(1.05); }
+        .admin-actions .add-btn { background:#4caf50; }
+        .admin-actions .remove-btn { background:#f44336; }
+        .admin-actions .admin-give-btn { background:linear-gradient(135deg,#ff6b6b,#ffcc00); color:#000; }
+        .admin-actions .admin-remove-btn { background:linear-gradient(135deg,#666,#333); }
+        .admin-actions .ban-btn { background:linear-gradient(135deg,#f44336,#b71c1c); animation:pulseBan 1s infinite; }
+        .admin-actions .unban-btn { background:linear-gradient(135deg,#4caf50,#2e7d32); }
+        .admin-give-group { display:flex; gap:3px; align-items:center; flex-wrap:wrap; }
+        .admin-give-group input { width:65px; padding:4px 6px; border-radius:4px; border:1px solid #4a4a6a; background:#0f0f1a; color:white; font-size:0.7rem; text-align:center; }
+        .admin-give-group input:focus { outline:none; border-color:#4caf50; }
+        .admin-give-group .give-btn { background:linear-gradient(135deg,#4caf50,#2e7d32); color:white; border:none; padding:3px 10px; border-radius:6px; cursor:pointer; font-weight:bold; font-size:0.6rem; }
+        .admin-give-group .give-btn.remove { background:linear-gradient(135deg,#f44336,#c62828); }
+
+        .call-modal { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:99999; display:none; justify-content:center; align-items:center; flex-direction:column; padding:20px; }
+        .call-modal.show { display:flex; }
+        .call-modal-content { background:#1a1a2e; border:2px solid #4caf50; border-radius:20px; padding:25px; max-width:700px; width:100%; text-align:center; }
+        .call-modal-content .call-videos { display:flex; gap:10px; margin-bottom:10px; flex-wrap:wrap; justify-content:center; }
+        .call-modal-content .call-videos video { width:45%; max-height:300px; border-radius:12px; background:#000; object-fit:cover; min-width:200px; }
+        .call-modal-content .call-videos .local-video { transform:scaleX(-1); }
+        .call-modal-content .call-status { color:#ffcc00; font-size:0.9rem; margin:8px 0; }
+        .call-modal-content .call-buttons { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+        .call-modal-content .call-buttons button { padding:10px 25px; border-radius:12px; border:none; font-weight:bold; font-size:0.95rem; cursor:pointer; transition:0.3s; }
+        .call-modal-content .call-buttons .end-call { background:#f44336; color:white; }
+        .call-modal-content .call-buttons .end-call:hover { transform:scale(1.05); }
+        .call-modal-content .call-buttons .mute-btn { background:#2a2a4a; color:white; }
+        .call-modal-content .call-buttons .mute-btn:hover { background:#3a3a5a; }
+        .call-modal-content .call-buttons .video-toggle { background:#2a2a4a; color:white; }
+
+        .call-request-modal { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:99998; display:none; justify-content:center; align-items:center; flex-direction:column; padding:20px; }
+        .call-request-modal.show { display:flex; }
+        .call-request-content { background:#1a1a2e; border:2px solid #4caf50; border-radius:20px; padding:30px; max-width:400px; width:100%; text-align:center; }
+        .call-request-content h2 { color:#ffcc00; font-size:1.5rem; margin-bottom:10px; }
+        .call-request-content .caller-name { font-size:1.2rem; margin:10px 0; color:#fff; }
+        .call-request-content .buttons { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+        .call-request-content .buttons button { padding:10px 25px; border-radius:12px; border:none; font-weight:bold; font-size:0.95rem; cursor:pointer; transition:0.3s; }
+        .call-request-content .buttons .accept-audio { background:linear-gradient(135deg,#0099ff,#0066cc); color:white; }
+        .call-request-content .buttons .accept-audio:hover { transform:scale(1.05); }
+        .call-request-content .buttons .accept-video { background:linear-gradient(135deg,#4caf50,#2e7d32); color:white; }
+        .call-request-content .buttons .accept-video:hover { transform:scale(1.05); }
+        .call-request-content .buttons .reject { background:#f44336; color:white; }
+        .call-request-content .buttons .reject:hover { transform:scale(1.05); }
+
+        .banned-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:99999; display:none; justify-content:center; align-items:center; flex-direction:column; padding:20px; }
+        .banned-overlay.show { display:flex; }
+        .banned-box { background:#1a1a2e; border:3px solid #f44336; border-radius:20px; padding:30px; max-width:400px; width:100%; text-align:center; }
+        .banned-box h1 { color:#f44336; font-size:1.8rem; margin-bottom:8px; }
+        .banned-box .ban-reason { color:#ff6b6b; font-size:1rem; margin:10px 0; padding:10px; background:rgba(244,67,54,0.1); border-radius:8px; border:1px solid #f44336; }
+        .banned-box .ban-time { color:#888; font-size:0.85rem; }
+        .banned-box .btn-secondary { background:#2a2a4a; color:white; border:none; padding:8px 20px; border-radius:10px; cursor:pointer; font-weight:bold; margin-top:8px; }
+
+        .confetti-container { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:99999; overflow:hidden; }
+        .confetti-piece { position:absolute; width:8px; height:8px; animation:confettiFall 3s ease-out forwards; }
+        @keyframes confettiFall { 0%{ transform:translateY(-20px) rotate(0deg) scale(1); opacity:1; } 100%{ transform:translateY(110vh) rotate(720deg) scale(0.5); opacity:0; } }
+
+        .ban-modal { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99998; display:none; justify-content:center; align-items:center; padding:20px; }
+        .ban-modal.show { display:flex; }
+        .ban-modal-content { background:#1a1a2e; border:2px solid #f44336; border-radius:20px; padding:20px; max-width:400px; width:100%; }
+        .ban-modal-content h2 { color:#f44336; text-align:center; margin-bottom:12px; font-size:1.3rem; }
+        .ban-modal-content label { display:block; color:#888; font-size:0.7rem; margin-top:8px; margin-bottom:3px; }
+        .ban-modal-content input, .ban-modal-content textarea, .ban-modal-content select { width:100%; padding:8px 12px; border-radius:8px; border:1px solid #2a2a4a; background:#0f0f1a; color:white; font-size:0.9rem; }
+        .ban-modal-content textarea { resize:vertical; min-height:50px; font-family:inherit; }
+        .ban-modal-content .ban-actions { display:flex; gap:8px; margin-top:12px; }
+        .ban-modal-content .ban-actions button { flex:1; padding:8px; border:none; border-radius:8px; font-size:0.85rem; font-weight:bold; cursor:pointer; }
+        .ban-modal-content .ban-actions .ban-confirm { background:#f44336; color:white; }
+        .ban-modal-content .ban-actions .ban-cancel { background:#2a2a4a; color:white; }
+
+        .trailer-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:99999; display:none; justify-content:center; align-items:center; flex-direction:column; padding:20px; }
+        .trailer-overlay.show { display:flex; }
+        .trailer-container { max-width:600px; width:100%; text-align:center; max-height:90vh; overflow-y:auto; padding:10px; }
+        .trailer-title { font-size:2.2rem; font-weight:900; color:#ffcc00; text-shadow:0 0 10px #ffcc00,0 0 20px #ffcc00,0 0 40px #ff6b6b; animation:neonPulse 1.5s ease-in-out infinite alternate; margin-bottom:15px; }
+        @keyframes neonPulse { 0%{ text-shadow:0 0 10px #ffcc00,0 0 20px #ffcc00,0 0 40px #ff6b6b; } 100%{ text-shadow:0 0 20px #ffcc00,0 0 40px #ffcc00,0 0 80px #ff6b6b; } }
+        .subtitle-container { min-height:150px; display:flex; align-items:center; justify-content:center; padding:20px; margin:8px 0; background:rgba(0,0,0,0.7); border-radius:14px; border:2px solid rgba(255,204,0,0.2); position:relative; }
+        .subtitle-text { font-size:1.2rem; font-weight:bold; color:white; line-height:1.5; opacity:0; transition:opacity 0.5s ease; text-align:center; min-height:80px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px; }
+        .subtitle-text.show { opacity:1; }
+        .subtitle-text .speaker { font-size:0.7rem; color:#888; font-style:italic; }
+        .subtitle-progress { position:absolute; bottom:0; left:0; height:3px; background:linear-gradient(90deg,#ffcc00,#ff6b6b); width:0%; transition:width 0.3s ease; }
+        .trailer-countdown { font-size:2.5rem; font-weight:bold; color:#ffcc00; margin:10px 0; text-shadow:0 0 30px rgba(255,204,0,0.5); font-family:monospace; display:none; }
+        .trailer-countdown.show { display:block; }
+        .trailer-status-text { color:#888; font-size:0.75rem; margin-top:8px; }
+
+        .trailer-launch-btn { position:fixed; bottom:100px; right:8px; background:linear-gradient(135deg,#ffcc00,#ff6b6b); color:#000; border:none; padding:8px 16px; border-radius:25px; cursor:pointer; font-weight:bold; z-index:1000; animation:pulseBtn 1s infinite; font-size:0.75rem; display:none; }
+        .trailer-launch-btn.show { display:block; }
+        .trailer-launch-btn.hidden { display:none; }
+        @keyframes pulseBtn { 0%{ transform:scale(1); } 50%{ transform:scale(1.05); } 100%{ transform:scale(1); } }
+
+        @media(max-width:600px){ .auth-box{ padding:25px; } .auth-box h1{ font-size:1.5rem; } .balance{ font-size:0.7rem; padding:4px 10px; top:45px; } .header button{ font-size:0.65rem; padding:4px 10px; } .user-info{ font-size:0.7rem; padding:3px 8px; } .dm-layout .dm-chat-list{ width:140px; min-width:120px; } .dm-layout .dm-chat-item{ padding:8px 10px; } .dm-layout .dm-chat-item .chat-name{ font-size:0.75rem; } .admin-users-header, .admin-user-row{ grid-template-columns:1fr 0.6fr 0.4fr 0.4fr 1.2fr; font-size:0.55rem; } .admin-user-row .user-balance{ font-size:0.65rem; } .admin-actions button{ font-size:0.45rem; padding:2px 4px; } .admin-give-group input{ width:45px; font-size:0.6rem; } .admin-give-group .give-btn{ font-size:0.5rem; padding:2px 6px; } .game-choice{ padding:10px 18px; font-size:1.2rem; min-width:70px; } .profile-photos-grid{ grid-template-columns:repeat(auto-fill,minmax(60px,1fr)); } .call-modal-content .call-videos{ flex-direction:column; } .call-modal-content .call-videos video{ width:100%; max-height:200px; } }
+    </style>
+</head>
+<body>
+
+<!-- ===== АВТОРИЗАЦИЯ ===== -->
+<div id="authScreen" class="auth-screen">
+    <div class="auth-box">
+        <h1>📨 Мессенджер Миша</h1>
+        <div class="sub" id="authSub">Войдите или зарегистрируйтесь</div>
+
+        <div id="registerForm">
+            <input type="text" id="regName" placeholder="Имя">
+            <input type="text" id="regSurname" placeholder="Фамилия">
+            <input type="password" id="regPassword" placeholder="Пароль (мин 4)">
+            <button class="btn btn-primary" onclick="registerUser()">Зарегистрироваться</button>
+            <div class="error" id="regError"></div>
+            <div class="success" id="regSuccess"></div>
+            <div style="margin-top:15px;color:#888;font-size:0.9rem;">
+                Уже есть аккаунт?
+                <span class="switch-link" onclick="showLogin()">Войти</span>
+            </div>
+        </div>
+
+        <div id="loginForm" style="display:none;">
+            <input type="text" id="loginName" placeholder="Ваше имя">
+            <input type="password" id="loginPassword" placeholder="Пароль">
+            <button class="btn btn-primary" onclick="loginUser()">Войти</button>
+            <div class="error" id="loginError"></div>
+            <div style="margin-top:15px;color:#888;font-size:0.9rem;">
+                Нет аккаунта?
+                <span class="switch-link" onclick="showRegister()">Зарегистрироваться</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== ОСНОВНОЙ ИНТЕРФЕЙС ===== -->
+<div id="mainApp" class="main-app">
+    <div class="balance">💰 <span id="balanceAmount">0</span> ₽</div>
+
+    <div class="header">
+        <button id="pixelBtn" class="pixel-btn active" onclick="switchMode('pixel')">❤️ Pixel</button>
+        <button id="chatBtn" class="chat-btn" onclick="switchMode('chat')">💬 Чат</button>
+        <button id="dmBtn" class="dm-btn" onclick="switchMode('dm')">✉️ ЛС</button>
+        <button id="leadersBtn" class="leaders-btn" onclick="switchMode('leaders')">🏆 Лидеры</button>
+        <button id="gameBtn" class="game-btn" onclick="switchMode('game')">🎮 Игры</button>
+        <button id="shopBtn" class="shop-btn" onclick="switchMode('shop')">🛒 Магазин</button>
+        <button id="profileBtn" class="profile-btn" onclick="switchMode('profile')">👤 Профиль</button>
+        <button id="searchBtn" class="search-btn" onclick="switchMode('search')">🔍 Поиск</button>
+        <button id="friendsBtn" class="friends-btn" onclick="switchMode('friends')">👥 Друзья</button>
+        <button id="adminBtn" class="admin-btn" onclick="switchMode('admin')">👑 Админка</button>
+        <span class="stats" style="color:#888;font-size:0.8rem;">❤️ Миша</span>
+        <button class="clear-btn" style="background:#f44336;color:white;border:none;padding:4px 12px;border-radius:20px;cursor:pointer;font-size:0.7rem;" onclick="clearCanvas()">🗑️</button>
+        <div class="user-info">
+            👤 <span id="userNameDisplay">Пользователь</span>
+            <span id="adminBadge" class="admin-badge">Админ</span>
+            <span id="bannedBadge" class="banned-badge">🚫 Забанен</span>
+            <button class="logout-btn" onclick="logout()">Выйти</button>
+        </div>
+    </div>
+
+    <!-- PIXEL -->
+    <div id="pixelContainer" class="pixel-mode active">
+        <div class="pixel-canvas-wrap" id="pixel-canvas-wrap">
+            <canvas id="pixel-canvas"></canvas>
+            <div class="pixel-tooltip" id="pixelTooltip">
+                <span class="tooltip-color" id="tooltipColor"></span>
+                <span class="tooltip-name" id="tooltipName">Пользователь</span>
+                <span class="tooltip-time" id="tooltipTime"></span>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="pixel-color-palette" id="pixel-color-palette">
+                <div class="pixel-color-btn" style="background:#d63384" data-color="#d63384" onclick="selectPixelColor(this)"></div>
+                <div class="pixel-color-btn" style="background:#ff0000" data-color="#ff0000" onclick="selectPixelColor(this)"></div>
+                <div class="pixel-color-btn" style="background:#ff6600" data-color="#ff6600" onclick="selectPixelColor(this)"></div>
+                <div class="pixel-color-btn" style="background:#ffcc00" data-color="#ffcc00" onclick="selectPixelColor(this)"></div>
+                <div class="pixel-color-btn" style="background:#00cc00" data-color="#00cc00" onclick="selectPixelColor(this)"></div>
+                <div class="pixel-color-btn" style="background:#0099ff" data-color="#0099ff" onclick="selectPixelColor(this)"></div>
+                <div class="pixel-color-btn" style="background:#6600cc" data-color="#6600cc" onclick="selectPixelColor(this)"></div>
+                <div class="pixel-color-btn" style="background:#ffffff" data-color="#ffffff" onclick="selectPixelColor(this)"></div>
+                <div class="pixel-color-btn" style="background:#000000" data-color="#000000" onclick="selectPixelColor(this)"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ЧАТ (скрыт до обновы) -->
+    <div id="chatContainer" class="chat-container">
+        <div class="chat-messages" id="chatMessages"><div class="chat-empty">💬 Загрузка...</div></div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Сообщение..." onkeydown="if(event.key==='Enter') sendChatMessage()">
+            <button onclick="sendChatMessage()">➤</button>
+        </div>
+    </div>
+
+    <!-- ЛС (всегда виден) -->
+    <div id="dmContainer" class="dm-layout">
+        <div class="dm-chat-list" id="dmChatList"><div class="dm-chat-empty">💬 Нет чатов</div></div>
+        <div class="dm-chat-area" id="dmChatArea">
+            <div class="dm-chat-header" id="dmChatHeader" style="display:none;">
+                <div class="avatar-small" id="dmChatAvatar">👤</div>
+                <div>
+                    <div class="chat-name" id="dmChatName">Пользователь</div>
+                    <div class="chat-status" id="dmChatStatus">🟢 Онлайн</div>
+                </div>
+                <button class="call-btn-small" id="callBtnSmall" onclick="startCall()">📞</button>
+            </div>
+            <div class="dm-messages" id="dmMessages"><div class="dm-empty">✉️ Выберите чат</div></div>
+            <div class="dm-input-area" id="dmInputArea" style="display:none;">
+                <input type="text" id="dmInput" placeholder="Сообщение..." onkeydown="if(event.key==='Enter') sendDmMessage()">
+                <button onclick="sendDmMessage()">➤</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ЛИДЕРЫ (скрыты до обновы) -->
+    <div id="leadersContainer" class="leaders-container">
+        <div class="leaders-title">🏆 Таблица лидеров</div>
+        <div id="leadersContent" style="flex:1;overflow-y:auto;"><div class="leaders-empty">Загрузка...</div></div>
+    </div>
+
+    <!-- ИГРЫ (скрыты до обновы) -->
+    <div id="gameContainer" class="game-container">
+        <div class="game-title">🎮 Камень-ножницы-бумага</div>
+        <div class="game-balance">💰 <span id="gameBalance">0</span> ₽</div>
+        <div class="game-bet">
+            <label>💰 Ставка:</label>
+            <input type="number" id="gameBet" value="10" min="1">
+            <button class="bet-half-btn" onclick="setBetHalf()">½</button>
+            <button class="bet-double-btn" onclick="setBetDouble()">×2</button>
+            <button class="bet-all-btn" onclick="setBetAll()">Всё</button>
+        </div>
+        <div class="game-buttons">
+            <button class="game-choice rock" onclick="playGame('rock')">✊</button>
+            <button class="game-choice scissors" onclick="playGame('scissors')">✌️</button>
+            <button class="game-choice paper" onclick="playGame('paper')">🖐️</button>
+        </div>
+        <div class="game-result" id="gameResult">Сделайте ставку!</div>
+        <div class="game-history" id="gameHistory"><div style="color:#888;padding:8px;text-align:center;font-size:0.8rem;">История</div></div>
+    </div>
+
+    <!-- МАГАЗИН (скрыт до обновы) -->
+    <div id="shopContainer" class="shop-container">
+        <div class="shop-title">🛒 Магазин</div>
+        <div class="shop-items" id="shopItems"></div>
+        <div style="text-align:center;color:#888;font-size:0.85rem;margin-top:8px;">💰 <span id="shopBalance" style="color:#ffcc00;font-weight:bold;">0</span> ₽</div>
+    </div>
+
+    <!-- ПРОФИЛЬ (всегда виден) -->
+    <div id="profileContainer" class="profile-container">
+        <div class="profile-title">👤 Профиль</div>
+        <div class="profile-card">
+            <div class="profile-avatar-wrap">
+                <img class="avatar-img" id="profileAvatar" src="" alt="Аватар" onclick="document.getElementById('avatarUpload').click()">
+            </div>
+            <input type="file" id="avatarUpload" class="avatar-upload" accept="image/*" onchange="uploadAvatar(event)">
+            <div class="profile-name" id="profileDisplayName">Имя</div>
+            <div class="profile-fullname" id="profileFullName">Полное имя</div>
+            <div class="profile-stat"><span class="label">💰 Баланс</span><span class="value balance" id="profileBalance">0 ₽</span></div>
+            <div class="profile-stat"><span class="label">⭐ Статус</span><span class="value" id="profileStatus">Пользователь</span></div>
+            <div class="profile-stat"><span class="label">📅 Регистрация</span><span class="value" id="profileRegistered">--</span></div>
+            <div class="profile-stat"><span class="label">🎨 Пикселей</span><span class="value" id="profilePixels">0</span></div>
+            <div class="profile-stat"><span class="label">👥 Друзей</span><span class="value" id="profileFriendsCount">0</span></div>
+            <div class="profile-photos">
+                <div class="profile-photos-title">📸 Мои фотографии</div>
+                <div class="profile-photos-grid" id="profilePhotosGrid"></div>
+            </div>
+            <div class="profile-inventory">
+                <div class="profile-inventory-title">🛒 Мои вещи:</div>
+                <div class="profile-inventory-items" id="profileInventory"></div>
+            </div>
+            <div class="profile-promo">
+                <input type="text" id="promoInput" placeholder="Промокод...">
+                <button onclick="usePromo()">🎁</button>
+            </div>
+            
+            <!-- КНОПКА УСТАНОВКИ - РАБОТАЕТ -->
+            <button class="install-btn" id="installBtn" onclick="installApp()">
+                ⬇️ Установить приложение
+            </button>
+            <div class="install-status" id="installStatus">
+                Нажмите для установки
+            </div>
+        </div>
+    </div>
+
+    <!-- ПОИСК (скрыт до обновы) -->
+    <div id="searchContainer" class="search-container">
+        <div class="search-title">🔍 Поиск</div>
+        <div class="search-input-area">
+            <input type="text" id="searchInput" placeholder="Имя..." onkeydown="if(event.key==='Enter') searchUsers()">
+            <button onclick="searchUsers()">🔍</button>
+        </div>
+        <div class="search-results" id="searchResults"><div style="color:#555;text-align:center;padding:20px;font-size:0.85rem;">Введите имя</div></div>
+    </div>
+
+    <!-- ДРУЗЬЯ (скрыты до обновы) -->
+    <div id="friendsContainer" class="friends-container">
+        <div class="friends-title">👥 Друзья</div>
+        <div class="friends-list" id="friendsList"><div style="color:#555;text-align:center;padding:20px;font-size:0.85rem;">Загрузка...</div></div>
+    </div>
+
+    <!-- АДМИНКА (только для админов) -->
+    <div id="adminContainer" class="admin-panel">
+        <div class="admin-title">👑 Админ-панель</div>
+        <div class="admin-global-msg">
+            <input type="text" id="globalMsgInput" placeholder="📢 Сообщение для всех..." onkeydown="if(event.key==='Enter') sendGlobalMessage()">
+            <button onclick="sendGlobalMessage()">📢</button>
+        </div>
+        <div class="admin-stats">
+            <div class="stat-card"><div class="number" id="totalUsers">0</div><div class="label">Всего</div></div>
+            <div class="stat-card online"><div class="number" id="onlineUsers">0</div><div class="label">Онлайн</div></div>
+            <div class="stat-card"><div class="number" id="totalBalance">0</div><div class="label">Баланс</div></div>
+            <div class="stat-card banned"><div class="number" id="totalBanned">0</div><div class="label">🚫 Бан</div></div>
+        </div>
+        <div class="admin-users">
+            <div class="admin-users-header">
+                <span>👤</span>
+                <span>🔑</span>
+                <span>💰</span>
+                <span>📡</span>
+                <span>⚡</span>
+            </div>
+            <div id="adminUsersList"><div style="padding:15px;text-align:center;color:#666;font-size:0.85rem;">Загрузка...</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== ТРЕЙЛЕР ===== -->
+<div class="trailer-overlay" id="trailerOverlay">
+    <div class="trailer-container">
+        <div class="trailer-title">🔄 ОБНОВЛЕНИЕ</div>
+        <div class="subtitle-container">
+            <div class="subtitle-text" id="subtitleText">Загрузка...</div>
+            <div class="subtitle-progress" id="subtitleProgress"></div>
+        </div>
+        <div class="trailer-status-text" id="trailerStatus">Идёт загрузка...</div>
+        <button style="margin-top:15px;background:#4caf50;color:white;border:none;padding:8px 20px;border-radius:12px;cursor:pointer;font-weight:bold;" onclick="closeTrailer()">✖ Закрыть</button>
+    </div>
+</div>
+
+<!-- КНОПКА ОБНОВЛЕНИЯ -->
+<button class="trailer-launch-btn" id="trailerLaunchBtn" onclick="startTrailerWithCode()">🔄 Обновление</button>
+
+<!-- ===== МОДАЛКИ ===== -->
+<div class="call-modal" id="callModal">
+    <div class="call-modal-content">
+        <div class="call-videos">
+            <video id="remoteVideo" autoplay playsinline></video>
+            <video id="localVideo" autoplay playsinline muted class="local-video"></video>
+        </div>
+        <div class="call-status" id="callStatus">⏳ Подключение...</div>
+        <div class="call-buttons">
+            <button class="mute-btn" onclick="toggleMute()">🔊</button>
+            <button class="video-toggle" onclick="toggleVideo()">📹</button>
+            <button class="end-call" onclick="endCall()">📞 Завершить</button>
+        </div>
+    </div>
+</div>
+
+<div class="call-request-modal" id="callRequestModal">
+    <div class="call-request-content">
+        <h2>📞 Входящий звонок</h2>
+        <div class="caller-name" id="callerName">Пользователь</div>
+        <div class="buttons">
+            <button class="accept-audio" onclick="acceptCall('audio')">🎤 Голос</button>
+            <button class="accept-video" onclick="acceptCall('video')">📹 Видео</button>
+            <button class="reject" onclick="rejectCall()">❌</button>
+        </div>
+    </div>
+</div>
+
+<div class="ban-modal" id="banModal">
+    <div class="ban-modal-content">
+        <h2>🚫 Забанить</h2>
+        <label>Причина:</label>
+        <textarea id="banReason" placeholder="Причина..."></textarea>
+        <label>Тип:</label>
+        <select id="banType" onchange="toggleBanTime()">
+            <option value="permanent">Навсегда</option>
+            <option value="temporary">На время</option>
+        </select>
+        <div id="banTimeDiv" style="display:none;">
+            <label>Минут:</label>
+            <input type="number" id="banMinutes" value="10" min="1">
+        </div>
+        <div class="ban-actions">
+            <button class="ban-confirm" onclick="confirmBan()">🚫 Забанить</button>
+            <button class="ban-cancel" onclick="closeBanModal()">Отмена</button>
+        </div>
+    </div>
+</div>
+
+<div class="banned-overlay" id="bannedOverlay">
+    <div class="banned-box">
+        <h1>🚫 ЗАБАНЕН</h1>
+        <div class="ban-reason" id="banReasonText">Причина не указана</div>
+        <div class="ban-time" id="banTimeText">Навсегда</div>
+        <button class="btn-secondary" onclick="logout()">Выйти</button>
+    </div>
+</div>
+
+<div class="confetti-container" id="confettiContainer"></div>
+
+<script>
+// ============================================================
+// ВСЕ ФУНКЦИИ (УСТАНОВКА РАБОТАЕТ)
+// ============================================================
+
+// ===== FIREBASE =====
+const firebaseConfig = {
+    apiKey: "AIzaSyA-g4MW0wXtXIdRd04-OdVPY5w-zIFb2b0",
+    authDomain: "walk-canvas-project.firebaseapp.com",
+    databaseURL: "https://walk-canvas-project-default-rtdb.firebaseio.com",
+    projectId: "walk-canvas-project",
+    storageBucket: "walk-canvas-project.firebasestorage.app",
+    messagingSenderId: "609880698980",
+    appId: "1:609880698980:web:311320d1256c2c8365ef71"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const usersRef = db.ref('app_users_balance');
+const pixelRef = db.ref('pixel_126x126');
+const onlineRef = db.ref('app_online');
+const adminsRef = db.ref('admins');
+const bansRef = db.ref('bans');
+const chatMessagesRef = db.ref('chat_messages');
+const globalMessagesRef = db.ref('global_messages');
+const friendRequestsRef = db.ref('friend_requests');
+const dmMessagesRef = db.ref('dm_messages');
+const callsRef = db.ref('calls');
+
+// ===== PWA УСТАНОВКА =====
+let deferredPrompt = null;
+let isInstalled = false;
+
+if (window.matchMedia('(display-mode: standalone)').matches) {
+    isInstalled = true;
+    document.getElementById('installBtn').classList.add('hidden');
+    document.getElementById('installStatus').textContent = '✅ Уже установлено!';
+}
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!isInstalled) {
+        document.getElementById('installBtn').classList.remove('hidden');
+        document.getElementById('installStatus').textContent = '📱 Нажмите для установки';
+    }
+});
+
+window.addEventListener('appinstalled', () => {
+    isInstalled = true;
+    document.getElementById('installBtn').classList.add('hidden');
+    document.getElementById('installStatus').textContent = '✅ Установлено!';
+    alert('🎉 Приложение установлено!');
+});
+
+function installApp() {
+    if (isInstalled) {
+        alert('✅ Уже установлено!');
+        return;
+    }
+    
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((result) => {
+            if (result.outcome === 'accepted') {
+                isInstalled = true;
+                document.getElementById('installBtn').classList.add('hidden');
+                document.getElementById('installStatus').textContent = '✅ Установлено!';
+                alert('🎉 Приложение установлено!');
+            } else {
+                document.getElementById('installStatus').textContent = '❌ Установка отменена';
+            }
+            deferredPrompt = null;
+        });
+    } else {
+        // Показываем простое сообщение без ебучих окон
+        document.getElementById('installStatus').textContent = '⚠️ Обновите страницу или используйте Chrome/Edge/Яндекс';
+        alert('📱 Для установки нажмите ⋮ → "Установить приложение"');
+    }
+}
+
+// ============================================================
+// ПЕРЕМЕННЫЕ
+// ============================================================
+let currentUser = null;
+let currentUserData = null;
+let isAdmin = false;
+let isBanned = false;
+let globalBalance = 1000;
+let userInventory = [];
+let userFriends = [];
+let userPixelColor = '#d63384';
+let pixelGrid = {};
+let gameHistory = [];
+let chatMessageListener = null;
+let dmListener = null;
+let currentDmChat = null;
+const STORAGE_KEY = 'app_user_login';
+const PROMO_CODE = '228_424242';
+const UPDATE_CODE = '1234';
+let trailerShown = false;
+
+// WebRTC
+let localStream = null;
+let remoteStream = null;
+let peerConnection = null;
+let callRoomId = null;
+let callTargetUser = null;
+let callListener = null;
+let callRequestListener = null;
+let isInCall = false;
+let isMuted = false;
+let isVideoEnabled = true;
+let currentCallData = null;
+let ringtoneAudio = null;
+
+const shopItems = [
+    { id: 'skin_gold', name: 'Золотой', icon: '🌟', price: 500 },
+    { id: 'skin_rainbow', name: 'Радужный', icon: '🌈', price: 1000 },
+    { id: 'skin_neon', name: 'Неоновый', icon: '💜', price: 750 },
+    { id: 'skin_dark', name: 'Тёмный', icon: '🌑', price: 300 },
+    { id: 'effect_confetti', name: 'Конфетти', icon: '🎊', price: 1500 }
+];
+
+const shopNames = {
+    'skin_gold': '🌟 Золотой',
+    'skin_rainbow': '🌈 Радужный',
+    'skin_neon': '💜 Неоновый',
+    'skin_dark': '🌑 Тёмный',
+    'effect_confetti': '🎊 Конфетти'
+};
+
+// ============================================================
+// АВТОРИЗАЦИЯ (БЕЗ АВТОВХОДА)
+// ============================================================
+function showLogin() { 
+    document.getElementById('registerForm').style.display = 'none'; 
+    document.getElementById('loginForm').style.display = 'block'; 
+    document.getElementById('authSub').textContent = 'Войдите в аккаунт'; 
+}
+function showRegister() { 
+    document.getElementById('registerForm').style.display = 'block'; 
+    document.getElementById('loginForm').style.display = 'none'; 
+    document.getElementById('authSub').textContent = 'Создайте аккаунт'; 
+}
+
+function registerUser() {
+    const name = document.getElementById('regName').value.trim();
+    const surname = document.getElementById('regSurname').value.trim();
+    const password = document.getElementById('regPassword').value.trim();
+    const errorDiv = document.getElementById('regError');
+    const successDiv = document.getElementById('regSuccess');
+    if (!name || !surname) { errorDiv.textContent = 'Заполните все поля!'; return; }
+    if (!password || password.length < 4) { errorDiv.textContent = 'Пароль минимум 4 символа!'; return; }
+    const loginKey = (name + surname).toLowerCase();
+    usersRef.child(loginKey).once('value').then(snap => {
+        if (snap.exists()) { errorDiv.textContent = 'Пользователь уже существует!'; }
+        else {
+            usersRef.child(loginKey).set({
+                name, surname, fullName: name + ' ' + surname, password,
+                balance: 1000, inventory: [], pixelsPlaced: 0, friends: [], avatar: '',
+                registered: Date.now(), photos: []
+            }).then(() => {
+                successDiv.textContent = '✅ Регистрация успешна! Войдите.';
+                setTimeout(showLogin, 1000);
+            });
+        }
+    });
+}
+
+function loginUser() {
+    const name = document.getElementById('loginName').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
+    const errorDiv = document.getElementById('loginError');
+    if (!name || !password) { errorDiv.textContent = 'Заполните все поля!'; return; }
+    const loginKey = name.toLowerCase().replace(/\s/g, '');
+    bansRef.child(loginKey).once('value').then(banSnap => {
+        if (banSnap.exists()) {
+            const banData = banSnap.val();
+            if (banData.permanent || banData.until > Date.now()) {
+                document.getElementById('banReasonText').textContent = 'Причина: ' + banData.reason;
+                document.getElementById('banTimeText').textContent = banData.permanent ? '🚫 НАВСЕГДА!' : '⏱️ до: ' + new Date(banData.until).toLocaleString();
+                document.getElementById('bannedOverlay').classList.add('show');
+                document.getElementById('authScreen').classList.add('hidden');
+                return;
+            } else bansRef.child(loginKey).remove();
+        }
+        usersRef.child(loginKey).once('value').then(snap => {
+            if (!snap.exists()) { errorDiv.textContent = 'Пользователь не найден!'; }
+            else {
+                const data = snap.val();
+                if (data.password !== password) { errorDiv.textContent = '❌ Неверный пароль!'; return; }
+                currentUser = loginKey;
+                currentUserData = data;
+                localStorage.setItem(STORAGE_KEY, loginKey);
+                startApp(data);
+            }
+        });
+    });
+}
+
+function logout() {
+    if (isInCall) endCall();
+    if (localStream) { localStream.getTracks().forEach(t => t.stop()); localStream = null; }
+    if (peerConnection) { peerConnection.close(); peerConnection = null; }
+    currentUser = null; currentUserData = null;
+    isAdmin = false; isBanned = false;
+    localStorage.removeItem(STORAGE_KEY);
+    document.getElementById('mainApp').classList.remove('active');
+    document.getElementById('authScreen').classList.remove('hidden');
+    document.getElementById('bannedOverlay').classList.remove('show');
+    document.getElementById('adminBtn').classList.remove('show');
+    document.getElementById('adminBadge').classList.remove('show');
+    document.getElementById('bannedBadge').classList.remove('show');
+    if (chatMessageListener) chatMessageListener.off();
+    if (dmListener) dmListener.off();
+    if (callListener) callListener.off();
+    if (callRequestListener) callRequestListener.off();
+    showLogin();
+}
+
+// ============================================================
+// ЗАПУСК
+// ============================================================
+function startApp(userData) {
+    document.getElementById('authScreen').classList.add('hidden');
+    document.getElementById('bannedOverlay').classList.remove('show');
+    document.getElementById('mainApp').classList.add('active');
+    document.getElementById('userNameDisplay').textContent = userData.fullName || userData.name;
+    globalBalance = userData.balance || 1000;
+    userInventory = userData.inventory || [];
+    userFriends = userData.friends || [];
+
+    updateAllBalances();
+    loadPixelData();
+    renderShop();
+    loadGlobalMessages();
+    updateProfile();
+    loadDmUsers();
+    listenCalls();
+
+    adminsRef.child(currentUser).on('value', snap => {
+        isAdmin = snap.val() === true;
+        if (isAdmin) {
+            document.getElementById('adminBtn').style.display = 'inline-block';
+            document.getElementById('adminBtn').classList.add('show');
+            document.getElementById('adminBadge').classList.add('show');
+            document.getElementById('trailerLaunchBtn').classList.remove('hidden');
+            document.getElementById('trailerLaunchBtn').classList.add('show');
+            loadAdminData();
+        } else {
+            document.getElementById('adminBtn').style.display = 'none';
+            document.getElementById('adminBtn').classList.remove('show');
+            document.getElementById('adminBadge').classList.remove('show');
+            document.getElementById('trailerLaunchBtn').classList.add('hidden');
+            document.getElementById('trailerLaunchBtn').classList.remove('show');
+        }
+        updateProfile();
+    });
+
+    usersRef.child(currentUser).on('value', snap => {
+        if (snap.exists()) {
+            currentUserData = snap.val();
+            globalBalance = currentUserData.balance || 1000;
+            userInventory = currentUserData.inventory || [];
+            userFriends = currentUserData.friends || [];
+            updateAllBalances();
+            updateProfile();
+            renderShop();
+            renderDmChatList();
+            renderFriends();
+        }
+    });
+
+    bansRef.child(currentUser).on('value', snap => {
+        if (snap.exists()) {
+            const banData = snap.val();
+            if (banData.permanent || banData.until > Date.now()) {
+                isBanned = true;
+                document.getElementById('bannedBadge').classList.add('show');
+            } else {
+                bansRef.child(currentUser).remove();
+                isBanned = false;
+                document.getElementById('bannedBadge').classList.remove('show');
+            }
+        } else {
+            isBanned = false;
+            document.getElementById('bannedBadge').classList.remove('show');
+        }
+    });
+
+    if (currentUser) {
+        onlineRef.child(currentUser).set(true);
+        onlineRef.child(currentUser).onDisconnect().remove();
+    }
+
+    loadLeaders();
+    loadChatMessages();
+    renderDmChatList();
+    renderFriends();
+
+    if (localStorage.getItem('trailer_shown')) {
+        showAllSections();
+    }
+}
+
+function showAllSections() {
+    document.getElementById('chatBtn').style.display = 'inline-block';
+    document.getElementById('leadersBtn').style.display = 'inline-block';
+    document.getElementById('gameBtn').style.display = 'inline-block';
+    document.getElementById('shopBtn').style.display = 'inline-block';
+    document.getElementById('searchBtn').style.display = 'inline-block';
+    document.getElementById('friendsBtn').style.display = 'inline-block';
+}
+
+function updateAllBalances() {
+    document.getElementById('balanceAmount').textContent = globalBalance;
+    document.getElementById('gameBalance').textContent = globalBalance;
+    document.getElementById('shopBalance').textContent = globalBalance;
+    document.getElementById('profileBalance').textContent = globalBalance + ' ₽';
+    document.getElementById('profileFriendsCount').textContent = userFriends.length;
+}
+
+// ============================================================
+// ПЕРЕКЛЮЧЕНИЕ
+// ============================================================
+function switchMode(mode) {
+    const containers = {
+        pixel: document.getElementById('pixelContainer'),
+        chat: document.getElementById('chatContainer'),
+        dm: document.getElementById('dmContainer'),
+        leaders: document.getElementById('leadersContainer'),
+        game: document.getElementById('gameContainer'),
+        shop: document.getElementById('shopContainer'),
+        profile: document.getElementById('profileContainer'),
+        search: document.getElementById('searchContainer'),
+        friends: document.getElementById('friendsContainer'),
+        admin: document.getElementById('adminContainer')
+    };
+    const buttons = {
+        pixel: document.getElementById('pixelBtn'),
+        chat: document.getElementById('chatBtn'),
+        dm: document.getElementById('dmBtn'),
+        leaders: document.getElementById('leadersBtn'),
+        game: document.getElementById('gameBtn'),
+        shop: document.getElementById('shopBtn'),
+        profile: document.getElementById('profileBtn'),
+        search: document.getElementById('searchBtn'),
+        friends: document.getElementById('friendsBtn'),
+        admin: document.getElementById('adminBtn')
+    };
+
+    Object.keys(containers).forEach(key => {
+        containers[key].classList.remove('active');
+        if (buttons[key]) buttons[key].classList.remove('active');
+    });
+
+    if (containers[mode]) containers[mode].classList.add('active');
+    if (buttons[mode]) buttons[mode].classList.add('active');
+
+    if (mode === 'pixel') initCanvas();
+}
+
+// ============================================================
+// ПИКСЕЛЬ
+// ============================================================
+let canvas, ctx, canvasSize = 126;
+
+function initCanvas() {
+    const canvasEl = document.getElementById('pixel-canvas');
+    const wrap = document.getElementById('pixel-canvas-wrap');
+    if (!canvasEl) return;
+    const rect = wrap.getBoundingClientRect();
+    const size = Math.min(rect.width - 10, rect.height - 10, 600);
+    canvasEl.width = canvasSize;
+    canvasEl.height = canvasSize;
+    canvasEl.style.width = size + 'px';
+    canvasEl.style.height = size + 'px';
+    canvas = canvasEl;
+    ctx = canvas.getContext('2d');
+    ctx.imageSmoothingEnabled = false;
+    drawPixelGrid();
+    canvasEl.onclick = handleCanvasClick;
+    canvasEl.onmousemove = handleCanvasMove;
+}
+
+function drawPixelGrid() {
+    if (!ctx) return;
+    ctx.clearRect(0, 0, canvasSize, canvasSize);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvasSize, canvasSize);
+    for (let y = 0; y < canvasSize; y++) {
+        for (let x = 0; x < canvasSize; x++) {
+            const key = x + ',' + y;
+            if (pixelGrid[key]) {
+                ctx.fillStyle = pixelGrid[key].color || '#888';
+                ctx.fillRect(x, y, 1, 1);
+            }
+        }
+    }
+}
+
+function loadPixelData() {
+    pixelRef.on('value', snap => {
+        const data = snap.val() || {};
+        pixelGrid = {};
+        Object.keys(data).forEach(key => {
+            pixelGrid[key] = data[key];
+        });
+        drawPixelGrid();
+    });
+}
+
+function handleCanvasClick(e) {
+    if (!currentUser || isBanned) return;
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const x = Math.floor((e.clientX - rect.left) * scaleX);
+    const y = Math.floor((e.clientY - rect.top) * scaleY);
+    if (x < 0 || x >= canvasSize || y < 0 || y >= canvasSize) return;
+    const key = x + ',' + y;
+    const color = userPixelColor || '#d63384';
+    const senderName = currentUserData ? currentUserData.fullName : 'Аноним';
+    pixelRef.child(key).set({ color, sender: currentUser, senderName, time: Date.now() });
+    usersRef.child(currentUser).update({ pixelsPlaced: (currentUserData.pixelsPlaced || 0) + 1 });
+}
+
+function handleCanvasMove(e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const x = Math.floor((e.clientX - rect.left) * scaleX);
+    const y = Math.floor((e.clientY - rect.top) * scaleY);
+    if (x < 0 || x >= canvasSize || y < 0 || y >= canvasSize) {
+        document.getElementById('pixelTooltip').classList.remove('show');
+        return;
+    }
+    const key = x + ',' + y;
+    const pixel = pixelGrid[key];
+    if (pixel) {
+        const tooltip = document.getElementById('pixelTooltip');
+        document.getElementById('tooltipColor').style.background = pixel.color;
+        document.getElementById('tooltipName').textContent = pixel.senderName || 'Аноним';
+        const time = pixel.time ? new Date(pixel.time).toLocaleString() : '--';
+        document.getElementById('tooltipTime').textContent = time;
+        tooltip.style.left = (e.clientX + 15) + 'px';
+        tooltip.style.top = (e.clientY - 10) + 'px';
+        tooltip.classList.add('show');
+    } else {
+        document.getElementById('pixelTooltip').classList.remove('show');
+    }
+}
+
+function selectPixelColor(el) {
+    document.querySelectorAll('.pixel-color-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    userPixelColor = el.dataset.color;
+}
+
+function clearCanvas() {
+    if (!isAdmin) { alert('⛔ Только админ!'); return; }
+    if (!confirm('Очистить холст?')) return;
+    pixelRef.remove().then(() => { alert('✅ Холст очищен!'); });
+}
+
+// ============================================================
+// ЧАТ
+// ============================================================
+function loadChatMessages() {
+    const container = document.getElementById('chatMessages');
+    container.innerHTML = '<div class="chat-empty">💬 Загрузка...</div>';
+    if (chatMessageListener) chatMessageListener.off();
+    chatMessageListener = chatMessagesRef.limitToLast(30);
+    chatMessageListener.on('child_added', (snap) => {
+        const data = snap.val();
+        if (data.type === 'global' || data.type === 'system') return;
+        addMessageToChat(data);
+    });
+}
+
+function addMessageToChat(data) {
+    const container = document.getElementById('chatMessages');
+    const empty = container.querySelector('.chat-empty');
+    if (empty) empty.remove();
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'chat-message';
+    const senderName = data.senderName || data.sender || 'Аноним';
+    const isSelf = data.sender === currentUser;
+    msgDiv.classList.add(isSelf ? 'self' : 'other');
+    msgDiv.innerHTML = `
+        <div class="sender">${senderName}</div>
+        <span class="text">${data.text || ''}</span>
+        <span class="time">${data.time ? new Date(data.time).toLocaleTimeString() : ''}</span>
+    `;
+    container.appendChild(msgDiv);
+    container.scrollTop = container.scrollHeight;
+}
+
+function sendChatMessage() {
+    const input = document.getElementById('chatInput');
+    const text = input.value.trim();
+    if (!text || !currentUser) return;
+    if (isBanned) { alert('🚫 Вы забанены!'); return; }
+    chatMessagesRef.push({
+        sender: currentUser,
+        senderName: currentUserData.fullName || currentUserData.name || 'Аноним',
+        text: text,
+        time: Date.now(),
+        type: 'message'
+    });
+    input.value = '';
+}
+
+// ============================================================
+// ЛИДЕРЫ
+// ============================================================
+function loadLeaders() {
+    usersRef.once('value').then(snap => {
+        const users = [];
+        snap.forEach(child => {
+            const data = child.val();
+            users.push({
+                key: child.key,
+                name: data.fullName || data.name || 'Аноним',
+                balance: data.balance || 0,
+                pixels: data.pixelsPlaced || 0
+            });
+        });
+        users.sort((a, b) => b.balance - a.balance);
+        const container = document.getElementById('leadersContent');
+        let html = `<table class="leaders-table">
+            <thead><tr><th>#</th><th>👤 Имя</th><th>💰 Баланс</th><th>🎨 Пикселей</th></tr></thead><tbody>`;
+        users.slice(0, 20).forEach((u, i) => {
+            const rankClass = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+            html += `<tr>
+                <td class="rank ${rankClass}">${i + 1}</td>
+                <td class="user-name">${u.name}</td>
+                <td class="user-balance">${u.balance} ₽</td>
+                <td style="color:#888;">${u.pixels}</td>
+            </tr>`;
+        });
+        html += '</tbody></table>';
+        container.innerHTML = html;
+    });
+}
+
+// ============================================================
+// ИГРЫ
+// ============================================================
+function setBetHalf() {
+    const input = document.getElementById('gameBet');
+    const val = parseFloat(input.value) || 10;
+    input.value = Math.max(1, Math.floor(val / 2));
+}
+function setBetDouble() {
+    const input = document.getElementById('gameBet');
+    const val = parseFloat(input.value) || 10;
+    input.value = Math.min(1000000, Math.floor(val * 2));
+}
+function setBetAll() {
+    const input = document.getElementById('gameBet');
+    input.value = Math.min(1000000, globalBalance);
+}
+
+function playGame(choice) {
+    if (isBanned) { alert('🚫 Вы забанены!'); return; }
+    const bet = parseInt(document.getElementById('gameBet').value) || 10;
+    if (bet < 1) { alert('❌ Ставка > 0!'); return; }
+    if (bet > globalBalance) { alert('❌ Недостаточно средств!'); return; }
+
+    const choices = ['rock', 'scissors', 'paper'];
+    const botChoice = choices[Math.floor(Math.random() * 3)];
+    const winMap = { rock: 'scissors', scissors: 'paper', paper: 'rock' };
+    let result = 'draw';
+    let winAmount = 0;
+
+    if (choice === botChoice) {
+        result = 'draw';
+    } else if (winMap[choice] === botChoice) {
+        result = 'win';
+        winAmount = bet * 2;
+    } else {
+        result = 'lose';
+        winAmount = -bet;
+    }
+
+    const emojiMap = { rock: '✊', scissors: '✌️', paper: '🖐️' };
+    const resultMap = { win: 'Победа! 🎉', lose: 'Поражение 😢', draw: 'Ничья 🤝' };
+
+    const resultDiv = document.getElementById('gameResult');
+    resultDiv.textContent = `${emojiMap[choice]} vs ${emojiMap[botChoice]} → ${resultMap[result]}`;
+    resultDiv.className = 'game-result ' + result;
+
+    if (result === 'win') {
+        globalBalance += winAmount;
+        usersRef.child(currentUser).update({ balance: globalBalance });
+        updateAllBalances();
+        showConfetti();
+    } else if (result === 'lose') {
+        globalBalance -= bet;
+        usersRef.child(currentUser).update({ balance: globalBalance });
+        updateAllBalances();
+    }
+
+    gameHistory.unshift({ choice, botChoice, result, bet, win: winAmount, time: Date.now() });
+    if (gameHistory.length > 20) gameHistory.pop();
+    renderGameHistory();
+}
+
+function renderGameHistory() {
+    const container = document.getElementById('gameHistory');
+    if (gameHistory.length === 0) {
+        container.innerHTML = '<div style="color:#888;padding:8px;text-align:center;font-size:0.8rem;">История</div>';
+        return;
+    }
+    let html = '';
+    gameHistory.forEach(h => {
+        const emojiMap = { rock: '✊', scissors: '✌️', paper: '🖐️' };
+        const resultText = h.result === 'win' ? '✅ +' + h.win : h.result === 'lose' ? '❌ -' + h.bet : '➖ 0';
+        const cls = h.result === 'win' ? 'win' : h.result === 'lose' ? 'lose' : 'draw';
+        html += `<div class="history-item ${cls}">
+            <span>${emojiMap[h.choice]} vs ${emojiMap[h.botChoice]}</span>
+            <span>${resultText} ₽</span>
+        </div>`;
+    });
+    container.innerHTML = html;
+}
+
+function showConfetti() {
+    const container = document.getElementById('confettiContainer');
+    const colors = ['#ff6b6b', '#ffcc00', '#4caf50', '#0099ff', '#ff00ff', '#ff6600'];
+    for (let i = 0; i < 40; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + '%';
+        piece.style.top = '-10px';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.width = (Math.random() * 6 + 4) + 'px';
+        piece.style.height = (Math.random() * 6 + 4) + 'px';
+        piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        piece.style.animationDelay = (Math.random() * 0.5) + 's';
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        container.appendChild(piece);
+        setTimeout(() => piece.remove(), 4000);
+    }
+}
+
+// ============================================================
+// МАГАЗИН
+// ============================================================
+function renderShop() {
+    const container = document.getElementById('shopItems');
+    let html = '';
+    shopItems.forEach(item => {
+        const owned = userInventory.includes(item.id);
+        const canBuy = globalBalance >= item.price && !owned;
+        html += `
+            <div class="shop-item">
+                <div class="icon">${item.icon}</div>
+                <div class="name">${item.name}</div>
+                <div class="price">💰 ${item.price} ₽</div>
+                <button class="buy-btn" ${!canBuy ? 'disabled' : ''} onclick="buyItem('${item.id}')">
+                    ${owned ? '✅ Есть' : '🛒 Купить'}
+                </button>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
+}
+
+function buyItem(itemId) {
+    if (isBanned) { alert('🚫 Вы забанены!'); return; }
+    const item = shopItems.find(i => i.id === itemId);
+    if (!item) return;
+    if (userInventory.includes(itemId)) { alert('✅ У вас уже есть!'); return; }
+    if (globalBalance < item.price) { alert('❌ Недостаточно средств!'); return; }
+
+    globalBalance -= item.price;
+    userInventory.push(itemId);
+    usersRef.child(currentUser).update({ balance: globalBalance, inventory: userInventory });
+    updateAllBalances();
+    renderShop();
+    updateProfile();
+    alert('🎉 Куплено!');
+}
+
+// ============================================================
+// ПРОФИЛЬ
+// ============================================================
+function updateProfile() {
+    if (!currentUserData) return;
+    const data = currentUserData;
+    document.getElementById('profileDisplayName').textContent = data.name || 'Пользователь';
+    document.getElementById('profileFullName').textContent = data.fullName || data.name || '';
+    document.getElementById('profileBalance').textContent = (data.balance || 0) + ' ₽';
+    document.getElementById('profileFriendsCount').textContent = (data.friends || []).length;
+
+    if (data.avatar) {
+        document.getElementById('profileAvatar').src = data.avatar;
+        document.getElementById('profileAvatar').style.display = 'block';
+    } else {
+        document.getElementById('profileAvatar').style.display = 'none';
+    }
+
+    let status = '👤 Пользователь';
+    if (isAdmin) status = '👑 Администратор';
+    if (isBanned) status = '🚫 Забанен';
+    document.getElementById('profileStatus').textContent = status;
+
+    const regDate = data.registered ? new Date(data.registered).toLocaleDateString() : '--';
+    document.getElementById('profileRegistered').textContent = regDate;
+    document.getElementById('profilePixels').textContent = data.pixelsPlaced || 0;
+
+    const inventoryContainer = document.getElementById('profileInventory');
+    const items = data.inventory || [];
+    if (items.length === 0) {
+        inventoryContainer.innerHTML = '<span style="color:#555;font-size:0.8rem;">Пусто</span>';
+    } else {
+        let html = '';
+        items.forEach(id => {
+            const name = shopNames[id] || id;
+            html += `<span class="profile-inventory-item">${name}</span>`;
+        });
+        inventoryContainer.innerHTML = html;
+    }
+
+    renderProfilePhotos();
+}
+
+function renderProfilePhotos() {
+    const grid = document.getElementById('profilePhotosGrid');
+    const photos = currentUserData.photos || [];
+    let html = '';
+    html += `
+        <div class="photo-upload-btn" onclick="document.getElementById('photoUploadInput').click()">
+            <span>+</span>
+        </div>
+        <input type="file" id="photoUploadInput" class="photo-upload-input" accept="image/*" multiple onchange="uploadPhotos(event)">
+    `;
+    photos.forEach((photo, index) => {
+        html += `
+            <div class="photo-item">
+                <img src="${photo}" alt="Фото ${index+1}">
+            </div>
+        `;
+    });
+    grid.innerHTML = html;
+}
+
+function uploadPhotos(event) {
+    const files = event.target.files;
+    if (!files.length) return;
+    const promises = [];
+    for (let file of files) {
+        if (!file.type.startsWith('image/')) continue;
+        if (file.size > 5 * 1024 * 1024) {
+            alert('❌ Файл > 5MB!');
+            continue;
+        }
+        const promise = new Promise((resolve) => {
+            const r = new FileReader();
+            r.onload = (e) => resolve(e.target.result);
+            r.readAsDataURL(file);
+        });
+        promises.push(promise);
+    }
+    Promise.all(promises).then(results => {
+        const photos = currentUserData.photos || [];
+        photos.push(...results);
+        usersRef.child(currentUser).update({ photos: photos }).then(() => {
+            currentUserData.photos = photos;
+            renderProfilePhotos();
+            alert('✅ Фото загружены!');
+        });
+    });
+    event.target.value = '';
+}
+
+function uploadAvatar(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) { alert('❌ Выберите изображение!'); return; }
+    if (file.size > 5 * 1024 * 1024) { alert('❌ Файл > 5MB!'); return; }
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        usersRef.child(currentUser).update({ avatar: e.target.result }).then(() => {
+            document.getElementById('profileAvatar').src = e.target.result;
+            document.getElementById('profileAvatar').style.display = 'block';
+            alert('✅ Аватарка обновлена!');
+        });
+    };
+    reader.readAsDataURL(file);
+    event.target.value = '';
+}
+
+function usePromo() {
+    const code = document.getElementById('promoInput').value.trim();
+    if (!code) { alert('❌ Введите промокод!'); return; }
+    if (code !== PROMO_CODE) { alert('❌ Неверный промокод!'); return; }
+    adminsRef.child(currentUser).once('value').then(snap => {
+        if (!snap.val()) { alert('❌ Только для админов!'); return; }
+        alert('🎉 Промокод активирован!');
+        document.getElementById('promoInput').value = '';
+    });
+}
+
+// ============================================================
+// ДРУЗЬЯ
+// ============================================================
+function renderFriends() {
+    const container = document.getElementById('friendsList');
+    if (!currentUserData) {
+        container.innerHTML = '<div style="color:#555;text-align:center;padding:20px;font-size:0.85rem;">Загрузка...</div>';
+        return;
+    }
+    const friends = currentUserData.friends || [];
+    if (friends.length === 0) {
+        container.innerHTML = '<div style="color:#555;text-align:center;padding:20px;font-size:0.85rem;">👥 Нет друзей</div>';
+        return;
+    }
+    container.innerHTML = '';
+    friends.forEach(friendKey => {
+        usersRef.child(friendKey).once('value').then(snap => {
+            if (!snap.exists()) return;
+            const data = snap.val();
+            onlineRef.child(friendKey).once('value').then(onSnap => {
+                const online = onSnap.val() === true;
+                const statusClass = online ? '' : 'offline';
+                const statusText = online ? '🟢 Онлайн' : '⚪ Офлайн';
+                const avatar = data.avatar ? `<img src="${data.avatar}" class="avatar-small">` : '👤';
+                const div = document.createElement('div');
+                div.className = 'friend-item';
+                div.innerHTML = `
+                    <div class="info" onclick="openDmChat('${friendKey}')">
+                        <div class="avatar-small">${avatar}</div>
+                        <div>
+                            <div class="name">${data.fullName || data.name || 'Аноним'}</div>
+                            <div class="status ${statusClass}">${statusText}</div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="friend-dm-btn" onclick="openDmChat('${friendKey}')">✉️</button>
+                        <button class="friend-call-btn" onclick="startCallWith('${friendKey}')">📞</button>
+                        <button class="friend-remove-btn" onclick="removeFriend('${friendKey}')">✖</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        });
+    });
+}
+
+function addFriend(userKey) {
+    if (!currentUser || userKey === currentUser) return;
+    const friends = currentUserData.friends || [];
+    if (friends.includes(userKey)) { alert('✅ Уже в друзьях!'); return; }
+    friendRequestsRef.child(userKey).child(currentUser).set({
+        from: currentUser,
+        fromName: currentUserData.fullName || currentUserData.name || 'Аноним',
+        time: Date.now()
+    });
+    alert('✅ Запрос отправлен!');
+}
+
+function removeFriend(userKey) {
+    if (!confirm('Удалить друга?')) return;
+    const friends = currentUserData.friends || [];
+    const index = friends.indexOf(userKey);
+    if (index > -1) {
+        friends.splice(index, 1);
+        usersRef.child(currentUser).update({ friends: friends });
+    }
+    usersRef.child(userKey).once('value').then(snap => {
+        if (snap.exists()) {
+            const data = snap.val();
+            const theirFriends = data.friends || [];
+            const idx = theirFriends.indexOf(currentUser);
+            if (idx > -1) {
+                theirFriends.splice(idx, 1);
+                usersRef.child(userKey).update({ friends: theirFriends });
+            }
+        }
+    });
+    renderFriends();
+    renderDmChatList();
+    alert('✅ Друг удалён');
+}
+
+// ============================================================
+// ПОИСК
+// ============================================================
+function searchUsers() {
+    const query = document.getElementById('searchInput').value.trim().toLowerCase();
+    if (!query) { alert('❌ Введите имя!'); return; }
+    const container = document.getElementById('searchResults');
+    container.innerHTML = '<div style="color:#888;text-align:center;padding:20px;font-size:0.85rem;">Поиск...</div>';
+
+    usersRef.once('value').then(snap => {
+        const results = [];
+        snap.forEach(child => {
+            const data = child.val();
+            const fullName = (data.fullName || data.name || '').toLowerCase();
+            if (fullName.includes(query) && child.key !== currentUser) {
+                results.push({ key: child.key, data: data });
+            }
+        });
+        if (results.length === 0) {
+            container.innerHTML = '<div style="color:#555;text-align:center;padding:20px;font-size:0.85rem;">❌ Не найдены</div>';
+            return;
+        }
+        let html = '';
+        results.forEach(r => {
+            const isFriend = (currentUserData.friends || []).includes(r.key);
+            const avatar = r.data.avatar ? `<img src="${r.data.avatar}" class="avatar-small">` : '👤';
+            const friendBtn = isFriend
+                ? '<button class="friend-remove-btn" onclick="removeFriend(\''+r.key+'\')">✖</button>'
+                : '<button class="friend-add-btn" onclick="addFriend(\''+r.key+'\')">➕</button>';
+            html += `
+                <div class="search-result-item">
+                    <div class="info" onclick="openDmChat('${r.key}')">
+                        <div class="avatar-small">${avatar}</div>
+                        <div class="name">${r.data.fullName || r.data.name || 'Аноним'}</div>
+                    </div>
+                    <div class="actions">
+                        ${friendBtn}
+                        <button class="dm-send-btn" onclick="openDmChat('${r.key}')">✉️</button>
+                    </div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+    });
+}
+
+// ============================================================
+// ЛС
+// ============================================================
+function loadDmUsers() {
+    if (!currentUser) return;
+    renderDmChatList();
+}
+
+function renderDmChatList() {
+    const container = document.getElementById('dmChatList');
+    const friends = currentUserData.friends || [];
+    if (friends.length === 0) {
+        container.innerHTML = '<div class="dm-chat-empty">💬 Нет чатов</div>';
+        return;
+    }
+    container.innerHTML = '';
+    friends.forEach(friendKey => {
+        usersRef.child(friendKey).once('value').then(snap => {
+            if (!snap.exists()) return;
+            const data = snap.val();
+            const avatar = data.avatar ? `<img src="${data.avatar}" class="avatar-small">` : '👤';
+            const div = document.createElement('div');
+            div.className = 'dm-chat-item' + (currentDmChat === friendKey ? ' active' : '');
+            div.dataset.key = friendKey;
+            div.innerHTML = `
+                <div class="avatar-small">${avatar}</div>
+                <div class="chat-info">
+                    <div class="chat-name">${data.fullName || data.name || 'Аноним'}</div>
+                </div>
+            `;
+            div.onclick = () => openDmChat(friendKey);
+            container.appendChild(div);
+        });
+    });
+}
+
+function openDmChat(userKey) {
+    if (!userKey) return;
+    currentDmChat = userKey;
+    document.querySelectorAll('.dm-chat-item').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.dm-chat-item').forEach(el => {
+        if (el.dataset.key === userKey) el.classList.add('active');
+    });
+
+    usersRef.child(userKey).once('value').then(snap => {
+        if (!snap.exists()) return;
+        const data = snap.val();
+        document.getElementById('dmChatHeader').style.display = 'flex';
+        document.getElementById('dmChatName').textContent = data.fullName || data.name || 'Аноним';
+        const avatar = data.avatar ? `<img src="${data.avatar}" class="avatar-small">` : '👤';
+        document.getElementById('dmChatAvatar').innerHTML = avatar;
+        onlineRef.child(userKey).once('value').then(onSnap => {
+            const online = onSnap.val() === true;
+            document.getElementById('dmChatStatus').textContent = online ? '🟢 Онлайн' : '⚪ Офлайн';
+            document.getElementById('dmChatStatus').className = 'chat-status' + (online ? '' : ' offline');
+        });
+        document.getElementById('dmInputArea').style.display = 'flex';
+        document.getElementById('callBtnSmall').onclick = () => startCallWith(userKey);
+        loadDmMessages(userKey);
+    });
+}
+
+function loadDmMessages(userKey) {
+    if (dmListener) dmListener.off();
+    const container = document.getElementById('dmMessages');
+    container.innerHTML = '<div class="dm-empty">💬 Загрузка...</div>';
+    const chatId = [currentUser, userKey].sort().join('_');
+    dmListener = dmMessagesRef.child(chatId).limitToLast(30);
+    dmListener.on('child_added', snap => {
+        const data = snap.val();
+        const empty = container.querySelector('.dm-empty');
+        if (empty) empty.remove();
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'dm-message';
+        const isSelf = data.sender === currentUser;
+        msgDiv.classList.add(isSelf ? 'self' : 'other');
+        const senderName = data.senderName || data.sender || 'Аноним';
+        msgDiv.innerHTML = `
+            <div class="sender">${isSelf ? 'Вы' : senderName}</div>
+            <span class="text">${data.text || ''}</span>
+            <span class="time">${data.time ? new Date(data.time).toLocaleTimeString() : ''}</span>
+        `;
+        container.appendChild(msgDiv);
+        container.scrollTop = container.scrollHeight;
+    });
+}
+
+function sendDmMessage() {
+    const input = document.getElementById('dmInput');
+    const text = input.value.trim();
+    if (!text || !currentUser || !currentDmChat) return;
+    if (isBanned) { alert('🚫 Вы забанены!'); return; }
+    const chatId = [currentUser, currentDmChat].sort().join('_');
+    dmMessagesRef.child(chatId).push({
+        sender: currentUser,
+        senderName: currentUserData.fullName || currentUserData.name || 'Аноним',
+        text: text,
+        time: Date.now()
+    });
+    input.value = '';
+}
+
+// ============================================================
+// ЗВОНКИ
+// ============================================================
+const iceServers = {
+    iceServers: [
+        { urls: 'stun:stun.l.google.com:19302' },
+        { urls: 'stun:stun1.l.google.com:19302' }
+    ]
+};
+
+function playRingtone() {
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        oscillator.frequency.value = 440;
+        oscillator.type = 'sine';
+        gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+        let count = 0;
+        const interval = setInterval(() => {
+            if (count >= 20 || !document.getElementById('callRequestModal').classList.contains('show')) {
+                clearInterval(interval);
+                oscillator.stop();
+                audioCtx.close();
+                ringtoneAudio = null;
+                return;
+            }
+            if (count % 2 === 0) {
+                gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                oscillator.start(audioCtx.currentTime);
+            } else {
+                gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+            }
+            count++;
+        }, 500);
+        ringtoneAudio = { stop: () => { clearInterval(interval); oscillator.stop(); audioCtx.close(); } };
+    } catch(e) { console.log('Рингтон не поддерживается'); }
+}
+
+function stopRingtone() {
+    if (ringtoneAudio) { ringtoneAudio.stop(); ringtoneAudio = null; }
+}
+
+function startCallWith(userKey) {
+    if (!userKey || isInCall) return;
+    callTargetUser = userKey;
+    startCall();
+}
+
+function startCall() {
+    if (!callTargetUser || isInCall) return;
+    onlineRef.child(callTargetUser).once('value').then(snap => {
+        if (!snap.val()) { alert('❌ Пользователь не в сети!'); return; }
+        callRoomId = [currentUser, callTargetUser].sort().join('_');
+        callsRef.child(callRoomId).set({
+            caller: currentUser, callee: callTargetUser,
+            status: 'calling', time: Date.now()
+        });
+        document.getElementById('callStatus').textContent = '⏳ Вызов...';
+        document.getElementById('callModal').classList.add('show');
+        isInCall = true;
+        if (callListener) callListener.off();
+        callListener = callsRef.child(callRoomId).on('value', snap => {
+            const data = snap.val();
+            if (!data) return;
+            if (data.status === 'accepted') {
+                document.getElementById('callStatus').textContent = '🔗 Соединено!';
+                if (data.offer) handleAnswer(data.offer);
+            } else if (data.status === 'rejected' || data.status === 'ended') {
+                endCall();
+            }
+        });
+    });
+}
+
+function acceptCall(type) {
+    if (!currentCallData) return;
+    callRoomId = [currentCallData.caller, currentCallData.callee].sort().join('_');
+    callTargetUser = currentCallData.caller;
+    stopRingtone();
+    createPeerConnection(type).then(() => {
+        callsRef.child(callRoomId).update({ status: 'accepted', type: type });
+        document.getElementById('callRequestModal').classList.remove('show');
+        document.getElementById('callStatus').textContent = '🔗 Подключение...';
+        document.getElementById('callModal').classList.add('show');
+        isInCall = true;
+        if (callListener) callListener.off();
+        callListener = callsRef.child(callRoomId).on('value', snap => {
+            const d = snap.val();
+            if (!d || d.status === 'ended') endCall();
+        });
+    });
+}
+
+function rejectCall() {
+    stopRingtone();
+    if (callRoomId) {
+        callsRef.child(callRoomId).update({ status: 'rejected' });
+        setTimeout(() => callsRef.child(callRoomId).remove(), 1000);
+    }
+    document.getElementById('callRequestModal').classList.remove('show');
+    isInCall = false;
+    callTargetUser = null;
+    callRoomId = null;
+}
+
+async function createPeerConnection(type) {
+    if (peerConnection) { peerConnection.close(); peerConnection = null; }
+    peerConnection = new RTCPeerConnection(iceServers);
+    try {
+        const constraints = { audio: true, video: type === 'video' };
+        localStream = await navigator.mediaDevices.getUserMedia(constraints);
+        document.getElementById('localVideo').srcObject = localStream;
+        localStream.getTracks().forEach(track => peerConnection.addTrack(track, localStream));
+    } catch (err) {
+        alert('❌ Ошибка доступа к микрофону/камере: ' + err.message);
+        endCall(); return;
+    }
+    peerConnection.ontrack = (event) => {
+        if (!remoteStream) {
+            remoteStream = new MediaStream();
+            document.getElementById('remoteVideo').srcObject = remoteStream;
+        }
+        event.streams[0].getTracks().forEach(track => remoteStream.addTrack(track));
+    };
+    peerConnection.onicecandidate = (event) => {
+        if (event.candidate) {
+            callsRef.child(callRoomId).child('candidates').push({
+                candidate: event.candidate, sender: currentUser
+            });
+        }
+    };
+    const candidateListener = callsRef.child(callRoomId).child('candidates');
+    candidateListener.off();
+    candidateListener.on('child_added', async (snap) => {
+        const data = snap.val();
+        if (data.sender !== currentUser && peerConnection) {
+            try { await peerConnection.addIceCandidate(new RTCIceCandidate(data.candidate)); }
+            catch(e) { console.log('ICE ошибка:', e); }
+        }
+    });
+    const callData = await callsRef.child(callRoomId).once('value');
+    const data = callData.val();
+    if (data && data.caller === currentUser && data.status === 'calling') {
+        const offer = await peerConnection.createOffer();
+        await peerConnection.setLocalDescription(offer);
+        await callsRef.child(callRoomId).update({ offer: offer });
+    } else if (data && data.callee === currentUser && data.offer) {
+        await handleOffer(data.offer);
+    }
+}
+
+async function handleOffer(offer) {
+    if (!peerConnection) return;
+    try {
+        await peerConnection.setRemoteDescription(new RTCSessionDescription(offer));
+        const answer = await peerConnection.createAnswer();
+        await peerConnection.setLocalDescription(answer);
+        await callsRef.child(callRoomId).update({ answer: answer });
+    } catch(err) { console.log('Offer ошибка:', err); }
+}
+
+async function handleAnswer(answer) {
+    if (!peerConnection) return;
+    try { await peerConnection.setRemoteDescription(new RTCSessionDescription(answer)); }
+    catch(err) { console.log('Answer ошибка:', err); }
+}
+
+function listenCalls() {
+    if (callRequestListener) callRequestListener.off();
+    callRequestListener = callsRef.orderByChild('callee').equalTo(currentUser);
+    callRequestListener.on('child_added', snap => {
+        const data = snap.val();
+        if (!data || data.callee !== currentUser) return;
+        if (data.status === 'calling' && !isInCall) {
+            currentCallData = data;
+            callRoomId = snap.key;
+            usersRef.child(data.caller).once('value').then(userSnap => {
+                const userData = userSnap.val();
+                document.getElementById('callerName').textContent = userData.fullName || userData.name || 'Аноним';
+                document.getElementById('callRequestModal').classList.add('show');
+                playRingtone();
+            });
+        }
+    });
+}
+
+function endCall() {
+    stopRingtone();
+    if (callRoomId) {
+        callsRef.child(callRoomId).update({ status: 'ended' });
+        setTimeout(() => {
+            callsRef.child(callRoomId).remove();
+            callsRef.child(callRoomId).child('candidates').remove();
+        }, 1000);
+    }
+    if (callListener) callListener.off();
+    if (callRequestListener) callRequestListener.off();
+    if (localStream) { localStream.getTracks().forEach(t => t.stop()); localStream = null; }
+    if (remoteStream) { remoteStream.getTracks().forEach(t => t.stop()); remoteStream = null; }
+    if (peerConnection) { peerConnection.close(); peerConnection = null; }
+    document.getElementById('localVideo').srcObject = null;
+    document.getElementById('remoteVideo').srcObject = null;
+    document.getElementById('callModal').classList.remove('show');
+    document.getElementById('callRequestModal').classList.remove('show');
+    isInCall = false;
+    isMuted = false;
+    isVideoEnabled = true;
+    callRoomId = null;
+    callTargetUser = null;
+    currentCallData = null;
+}
+
+function toggleMute() {
+    if (!localStream) return;
+    isMuted = !isMuted;
+    localStream.getAudioTracks().forEach(t => t.enabled = !isMuted);
+    document.querySelector('.mute-btn').textContent = isMuted ? '🔇' : '🔊';
+}
+
+function toggleVideo() {
+    if (!localStream) return;
+    isVideoEnabled = !isVideoEnabled;
+    localStream.getVideoTracks().forEach(t => t.enabled = isVideoEnabled);
+    document.querySelector('.video-toggle').textContent = isVideoEnabled ? '📹' : '🚫';
+}
+
+// ============================================================
+// ГЛОБАЛЬНЫЕ СООБЩЕНИЯ
+// ============================================================
+function loadGlobalMessages() {
+    globalMessagesRef.limitToLast(1).on('child_added', snap => {
+        const data = snap.val();
+        if (!data || !data.text) return;
+        const container = document.getElementById('chatMessages');
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'chat-message system';
+        msgDiv.innerHTML = `📢 <b>${data.senderName || 'Админ'}</b>: ${data.text}`;
+        container.appendChild(msgDiv);
+        container.scrollTop = container.scrollHeight;
+    });
+}
+
+function sendGlobalMessage() {
+    if (!isAdmin) { alert('⛔ Только админ!'); return; }
+    const input = document.getElementById('globalMsgInput');
+    const text = input.value.trim();
+    if (!text) return;
+    globalMessagesRef.push({
+        sender: currentUser,
+        senderName: currentUserData.fullName || 'Админ',
+        text: text,
+        time: Date.now()
+    });
+    input.value = '';
+    alert('✅ Отправлено!');
+}
+
+// ============================================================
+// АДМИНКА
+// ============================================================
+function loadAdminData() {
+    if (!isAdmin) return;
+    usersRef.once('value').then(snap => {
+        const users = [];
+        let totalBalance = 0;
+        snap.forEach(child => {
+            const data = child.val();
+            users.push({ key: child.key, data: data });
+            totalBalance += data.balance || 0;
+        });
+        document.getElementById('totalUsers').textContent = users.length;
+        document.getElementById('totalBalance').textContent = totalBalance;
+        onlineRef.once('value').then(onSnap => {
+            let onlineCount = 0;
+            onSnap.forEach(() => onlineCount++);
+            document.getElementById('onlineUsers').textContent = onlineCount;
+        });
+        bansRef.once('value').then(banSnap => {
+            let bannedCount = 0;
+            banSnap.forEach(() => bannedCount++);
+            document.getElementById('totalBanned').textContent = bannedCount;
+        });
+        renderAdminUsers(users);
+    });
+}
+
+function renderAdminUsers(users) {
+    const container = document.getElementById('adminUsersList');
+    let html = '';
+    users.forEach(u => {
+        html += `
+            <div class="admin-user-row">
+                <span class="user-name">${u.data.fullName || u.data.name || 'Аноним'}</span>
+                <span class="user-password" onclick="copyText('${u.data.password || ''}')">${u.data.password || '—'}</span>
+                <span class="user-balance">${u.data.balance || 0} ₽</span>
+                <span class="user-online" id="online_${u.key}">⚪</span>
+                <div class="admin-actions">
+                    <button class="admin-give-btn" onclick="giveAdmin('${u.key}')">👑</button>
+                    <button class="admin-remove-btn" onclick="removeAdmin('${u.key}')">❌</button>
+                    <div class="admin-give-group">
+                        <input type="number" id="give_${u.key}" value="100" min="1">
+                        <button class="give-btn" onclick="giveMoney('${u.key}')">+</button>
+                        <button class="give-btn remove" onclick="removeMoney('${u.key}')">-</button>
+                    </div>
+                    <button class="ban-btn" onclick="openBanModal('${u.key}')">🚫</button>
+                </div>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
+    users.forEach(u => {
+        onlineRef.child(u.key).once('value').then(snap => {
+            const el = document.getElementById('online_' + u.key);
+            if (el) el.textContent = snap.val() ? '🟢' : '⚪';
+        });
+    });
+}
+
+function giveAdmin(userKey) {
+    if (!isAdmin) return;
+    adminsRef.child(userKey).set(true);
+    alert('✅ Админ выдан!');
+    loadAdminData();
+}
+
+function removeAdmin(userKey) {
+    if (!isAdmin) return;
+    if (userKey === currentUser) { alert('❌ Нельзя снять себя!'); return; }
+    adminsRef.child(userKey).remove();
+    alert('✅ Админ снят!');
+    loadAdminData();
+}
+
+function giveMoney(userKey) {
+    if (!isAdmin) return;
+    const input = document.getElementById('give_' + userKey);
+    const amount = parseInt(input.value) || 100;
+    usersRef.child(userKey).once('value').then(snap => {
+        if (!snap.exists()) return;
+        const data = snap.val();
+        usersRef.child(userKey).update({ balance: (data.balance || 0) + amount });
+        alert('✅ Выдано ' + amount + ' ₽');
+        loadAdminData();
+    });
+}
+
+function removeMoney(userKey) {
+    if (!isAdmin) return;
+    const input = document.getElementById('give_' + userKey);
+    const amount = parseInt(input.value) || 100;
+    usersRef.child(userKey).once('value').then(snap => {
+        if (!snap.exists()) return;
+        const data = snap.val();
+        usersRef.child(userKey).update({ balance: Math.max(0, (data.balance || 0) - amount) });
+        alert('✅ Снято ' + amount + ' ₽');
+        loadAdminData();
+    });
+}
+
+function openBanModal(userKey) {
+    if (!isAdmin) return;
+    banTargetUser = userKey;
+    document.getElementById('banReason').value = '';
+    document.getElementById('banType').value = 'permanent';
+    document.getElementById('banTimeDiv').style.display = 'none';
+    document.getElementById('banModal').classList.add('show');
+}
+
+function toggleBanTime() {
+    const type = document.getElementById('banType').value;
+    document.getElementById('banTimeDiv').style.display = type === 'temporary' ? 'block' : 'none';
+}
+
+function closeBanModal() {
+    document.getElementById('banModal').classList.remove('show');
+    banTargetUser = null;
+}
+
+function confirmBan() {
+    if (!isAdmin || !banTargetUser) return;
+    const reason = document.getElementById('banReason').value.trim() || 'Без причины';
+    const type = document.getElementById('banType').value;
+    let banData = { reason: reason, permanent: true };
+    if (type === 'temporary') {
+        const minutes = parseInt(document.getElementById('banMinutes').value) || 10;
+        banData = { reason: reason, permanent: false, until: Date.now() + minutes * 60 * 1000 };
+    }
+    bansRef.child(banTargetUser).set(banData);
+    alert('✅ Пользователь забанен!');
+    closeBanModal();
+    loadAdminData();
+}
+
+function copyText(text) {
+    navigator.clipboard.writeText(text).then(() => alert('✅ Скопировано!'));
+}
+
+// ============================================================
+// ТРЕЙЛЕР
+// ============================================================
+function startTrailerWithCode() {
+    if (trailerShown) return;
+    if (!isAdmin) { alert('⛔ Только админ!'); return; }
+    const code = prompt('Введите код (1234):');
+    if (code !== UPDATE_CODE) { alert('❌ Неверный код!'); return; }
+    startTrailer();
+}
+
+function startTrailer() {
+    if (trailerShown) return;
+    trailerShown = true;
+    document.getElementById('mainApp').classList.add('blocked');
+    document.getElementById('trailerOverlay').classList.add('show');
+    const progressEl = document.getElementById('subtitleProgress');
+    const statusEl = document.getElementById('trailerStatus');
+    const subtitleEl = document.getElementById('subtitleText');
+    subtitleEl.classList.remove('show');
+    subtitleEl.innerHTML = 'Обновление...';
+    let elapsed = 0;
+    statusEl.textContent = 'Идёт загрузка...';
+    progressEl.style.width = '0%';
+    const interval = setInterval(() => {
+        elapsed++;
+        const percent = Math.min(100, (elapsed / 60) * 100);
+        progressEl.style.width = percent + '%';
+        if (elapsed >= 60) {
+            clearInterval(interval);
+            statusEl.textContent = '✅ Готово!';
+            subtitleEl.innerHTML = '🎉 Обновление завершено!';
+            subtitleEl.classList.add('show');
+            setTimeout(() => {
+                closeTrailer();
+                document.getElementById('mainApp').classList.remove('blocked');
+                document.getElementById('trailerLaunchBtn').classList.add('hidden');
+                localStorage.setItem('trailer_shown', 'true');
+                alert('✅ Обновление завершено!');
+                showAllSections();
+                switchMode('pixel');
+            }, 1500);
+        }
+    }, 1000);
+}
+
+function closeTrailer() {
+    document.getElementById('trailerOverlay').classList.remove('show');
+    document.getElementById('subtitleProgress').style.width = '0%';
+}
+
+// ============================================================
+// ЗАПУСК (БЕЗ АВТОВХОДА)
+// ============================================================
+window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('registerForm').style.display = 'block';
+    setTimeout(initCanvas, 100);
+    console.log('🔒 Автовход отключен.');
+});
+
+console.log('✅ Мессенджер Миша готов!');
+</script>
+</body>
+</html>
